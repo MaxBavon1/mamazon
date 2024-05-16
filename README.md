@@ -1,0 +1,2 @@
+# mamazon
+Amazon but better
