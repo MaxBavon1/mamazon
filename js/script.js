@@ -115,6 +115,30 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
+
+  const underline = document.getElementById("underline");
+  const labels = document.querySelectorAll(".menu-label");
+
+  function updateUnderlinePosition() {
+    const checkedRadio = document.querySelector('input[name="menu"]:checked');
+    const checkedLabel = checkedRadio.parentElement;
+    const spanElement = checkedRadio.nextElementSibling;
+
+    const labelRect = checkedLabel.getBoundingClientRect();
+    const containerRect = document
+      .getElementById("grey-container")
+      .getBoundingClientRect();
+
+    underline.style.width = `${spanElement.offsetWidth}px`;
+    underline.style.left = `${labelRect.left - containerRect.left}px`;
+  }
+
+  labels.forEach((label) => {
+    label.addEventListener("click", updateUnderlinePosition);
+  });
+
+  // Initial update on page load to position the underline under "New"
+  updateUnderlinePosition();
 });
 
 function PopIn(element) {
