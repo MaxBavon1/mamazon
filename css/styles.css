@@ -57,16 +57,9 @@ button {
 }
 
 #search-button {
-  position: absolute;
-  top: 50%;
-  right: 90px;
-  transform: translateY(-50%);
-  padding: 0;
-}
-
-#search-button img {
-  width: 30px;
-  height: 30px;
+  position: relative;
+  right: 50px;
+  top: 5px;
 }
 
 #home-button {
@@ -148,4 +141,14 @@ button {
 
 .move-up-body {
   animation: moveUp 0.2s ease-out forwards;
+}
+
+.pop-in {
+  transform: scale(1.1);
+  transition: transform 0.1s ease-out;
+}
+
+.pop-out {
+  transform: scale(1);
+  transition: transform 0.1s ease-in;
 }

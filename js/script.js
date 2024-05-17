@@ -36,10 +36,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const mouseX = event.clientX;
     const mouseY = event.clientY;
 
-    const withinLeftDistance = mouseX >= rect.left - 50;
-    const withinRightDistance = mouseX <= rect.right + 150;
-    const withinTopDistance = mouseY >= rect.top - 150;
-    const withinBottomDistance = mouseY <= rect.bottom + 150;
+    const withinLeftDistance = mouseX >= rect.left - 25;
+    const withinRightDistance = mouseX <= rect.right + 100;
+    const withinTopDistance = mouseY >= rect.top - 100;
+    const withinBottomDistance = mouseY <= rect.bottom + 100;
 
     if (
       withinLeftDistance &&
@@ -116,3 +116,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+function PopIn(element) {
+  const elem = document.getElementById(element);
+  elem.classList.add("pop-in");
+  elem.classList.remove("pop-out");
+}
+
+function PopOut(element) {
+  const elem = document.getElementById(element);
+  elem.classList.remove("pop-in");
+  elem.classList.add("pop-out");
+}
