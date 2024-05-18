@@ -4,7 +4,9 @@
     <title>Mamazon</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="../css/styles.css"/>
-    <script src="/js/script.js"></script>
+    <link rel="stylesheet" href="../css/items_styles.css"/>
+    <script src="../js/script.js"></script>
+    <script src="../js/items_script.js" defer></script>
   </head>
   <body>
     <header id="blue-container">
@@ -44,6 +46,7 @@
         </div>
     </header>
 
+
     <div id="grey-container">
         <form id="menu-form">
             <label class="menu-label" id="new-label">
@@ -61,20 +64,17 @@
         </form>
         <div id="underline"></div>
     </div>
-    
-    <p>alex</p><p>alex</p>
-    <p>alex</p><p>alex</p>
-    <p>alex</p><p>alex</p>
-    <p>alex</p><p>alex</p>
-    <p>alex</p><p>alex</p>
-    <p>alex</p><p>alex</p>
-    <p>alex</p><p>alex</p>
-    <p>alex</p><p>alex</p>
-    <p>alex</p><p>alex</p>
-    <p>alex</p><p>alex</p>
-    <p>alex</p><p>alex</p>
-    <p>alex</p><p>alex</p>
-    <p>alex</p><p>alex</p>
-    <p>alex</p><p>alex</p>
-    
-</html>
+
+    <main>
+        <div id="table-container">
+            <table id="items-table">
+                <tbody>
+                    <!-- items from js -->
+                </tbody>
+            </table>
+            <div id="pagination">
+                <button id="prev-page">Previous</button>
+                <button id="next-page">Next</button>
+            </div>
+        </div>
+    </main>
