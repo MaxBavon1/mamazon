@@ -19,6 +19,33 @@ async function initialize() {
     renderTable();
 }
 
+  
+function PopIn(element) {
+    const elem = document.getElementById(element);
+    elem.classList.remove("pop-out", "big-pop-in", "big-pop-out");
+    elem.classList.add("pop-in");
+}
+
+function PopOut(element) {
+    const elem = document.getElementById(element);
+    elem.classList.remove("pop-in", "big-pop-in", "big-pop-out");
+    elem.classList.add("pop-out");
+}
+
+function BigPop(element) {
+    const elem = document.getElementById(element);
+    elem.classList.remove("pop-in", "pop-out", "big-pop-out");
+    elem.classList.add("big-pop-in");
+
+    setTimeout(() => {
+        elem.classList.remove("big-pop-in");
+        elem.classList.add("big-pop-out");
+
+        setTimeout(() => {
+            elem.classList.remove("big-pop-out");
+        }, 100);
+    }, 100);
+}
 
 
 function renderTable() {
@@ -37,6 +64,7 @@ function renderTable() {
             tableBody.appendChild(row);
         }
 
+        const uniqueId = `item-${startIndex + index}`;
         const cell = document.createElement('td');
         cell.innerHTML = `
             <div id="item-container">
@@ -61,8 +89,7 @@ function renderTable() {
                             <div class="price">
                                 <span class="price-whole">${item.priceWhole}</span><span class="price-decimal">${item.priceDecimal}</span>
                             </div>
-                            <button id="buy-button">Add to Cart</button>
-                        </div>
+                            <button type="button" class="buy-button" id='${uniqueId}' onclick="BigPop('${uniqueId}')" onclick="AddToCart()" onmouseenter="PopIn('${uniqueId}')" onmouseleave="PopOut('${uniqueId}')" onclick="addToCart('${uniqueId}')">Add to Cart</button>                        </div>
                     </div>  
                 </div>
             </div>

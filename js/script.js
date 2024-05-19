@@ -152,3 +152,18 @@ function PopOut(element) {
   elem.classList.remove("pop-in");
   elem.classList.add("pop-out");
 }
+
+function BigPop(element) {
+  const elem = document.getElementById(element);
+  elem.classList.remove("pop-in", "pop-out", "big-pop-out");
+  elem.classList.add("big-pop-in");
+
+  setTimeout(() => {
+      elem.classList.remove("big-pop-in");
+      elem.classList.add("big-pop-out");
+
+      setTimeout(() => {
+          elem.classList.remove("big-pop-out");
+      }, 100);
+  }, 100);
+}
