@@ -177,13 +177,11 @@ td {
 .buy-button {
     width: 90px;
     height: 25px;
-    background-color: #FFD715;
-    border-radius: 15px;
-    border: rgba(224, 75, 0, 0.1) solid 1px;
-    font-size: 11px;
-    font-weight: bold;
-    color: #351b05;
+}
+
+#add-to-cart-img {
     position: relative;
+    width: 110%;
 }
 
 
