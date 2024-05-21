@@ -13,5 +13,7 @@
   { "name": "The Friendzone", "priceWhole": "$00", "priceDecimal": "00", "img": "friendzone.png", "rating": 0.5, "reviews":1003 },
   { "name": "42 years old", "priceWhole": "$710", "priceDecimal": "32", "img": "42_years_old.png", "rating": 4.5, "reviews":14 },
   { "name": "Jeff Bezos' credit card", "priceWhole": "$2", "priceDecimal": "90", "img": "jeff_bezos_credit_card.png", "rating": 0, "reviews":0 },
-  { "name": "A beautiful camping", "priceWhole": "$48", "priceDecimal": "75", "img": "camping.png", "rating": 3.5, "reviews":7 }
+  { "name": "A beautiful camping", "priceWhole": "$48", "priceDecimal": "75", "img": "camping.png", "rating": 3.5, "reviews":7 },
+  { "name": "Mars", "priceWhole": "$3", "priceDecimal": "92", "img": "planet_mars.png", "rating": 2.5, "reviews":801 },
+  { "name": "a mars", "priceWhole": "$32,000,000", "priceDecimal": "01", "img": "chocolate_mars.png", "rating": 4, "reviews":3 }
 ]
