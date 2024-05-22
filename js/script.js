@@ -10,9 +10,10 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-  document
+    document
     .getElementById("home-button")
     .addEventListener("click", goToHomePage);
+    
   function goToHomePage() {
     window.location.href = "/html/home.html";
   }
