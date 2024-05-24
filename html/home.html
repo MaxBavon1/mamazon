@@ -3,23 +3,24 @@
   <head>
     <title>Mamazon</title>
     <meta charset="utf-8"/>
-    <link rel="stylesheet" href="../css/styles.css"/>
-    <link rel="stylesheet" href="../css/items_styles.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
+    <link rel="stylesheet" href="../css/items.css"/>
+    <link rel="icon" href="../img/header/mamazon_icon.png" type="image/x-icon">
     <script src="../js/script.js"></script>
-    <script src="../js/items_script.js" defer></script>
+    <script src="../js/items.js" defer></script>
   </head>
   <body>
     <header id="blue-container">
         <div class="zone">
             <button id="home-button" onclick="goToHomePage()" onmouseenter="PopIn('home-button')" onmouseleave="PopOut('home-button')">
-                <img src="../img/logo_white.png" alt="Home page" height="50"/>
+                <img src="../img/header/logo_white.png" alt="Home page" height="50"/>
             </button>
         </div>
 
         <div class="zone">
             <input type="text" id="main-search-bar"  placeholder="Search Mamazon">
             <button type="button" id="search-button" onclick="search()" onmouseenter="PopIn('search-button')" onmouseleave="PopOut('search-button')">
-                <img src="../img/icon/loupe.png" alt="Search" width="35" class="overlay-img"/>
+                <img src="../img/header/loupe.png" alt="Search" width="35" class="overlay-img"/>
             </button>
             
         </div>
@@ -28,18 +29,18 @@
         <div class="zone">
             <div id="basket">
                 <button id="basket-button" onclick="goToBasket()" onmouseenter="PopIn('basket-button')" onmouseleave="PopOut('basket-button')">
-                    <img src="../img/icon/basket.png" alt="Basket" height="50"/>
+                    <img src="../img/header/basket.png" alt="Basket" height="50"/>
                 </button>
             </div>
             <div id="account">
                 <button id="account-button">
                     <div id="account-mask">
-                        <img src="../img/icon/account_parts/interior.png" alt="Account" height="50" class="overlay-img"/>
-                        <img src="../img/icon/account_parts/head.png" alt="Account" height="50" class="overlay-img" id="account-head"/>
-                        <img src="../img/icon/account_parts/body.png" alt="Account" height="50" class="overlay-img" id="account-body"/>
+                        <img src="../img/header/account_parts/interior.png" alt="Account" height="50" class="overlay-img"/>
+                        <img src="../img/header/account_parts/head.png" alt="Account" height="50" class="overlay-img" id="account-head"/>
+                        <img src="../img/header/account_parts/body.png" alt="Account" height="50" class="overlay-img" id="account-body"/>
                     </div>
                     
-                    <img src="../img/icon/account_parts/exterior.png" alt="Account" height="50" class="overlay-img"/>  
+                    <img src="../img/header/account_parts/exterior.png" alt="Account" height="50" class="overlay-img"/>  
                 </button>
             </div>
 

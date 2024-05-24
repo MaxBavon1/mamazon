@@ -1,6 +1,6 @@
 async function fetchItems() {
     try {
-        const response = await fetch('../json/items.json');
+        const response = await fetch('../data/json/items.json');
         const items = await response.json();
         return items;
     } catch (error) {
@@ -8,7 +8,6 @@ async function fetchItems() {
         return [];
     }
 }
-
 
 let currentPage = 1;
 const itemsPerPage = 25;
@@ -40,13 +39,13 @@ function renderTable() {
         cell.innerHTML = `
             <div class="item-container">
                 <div class="img-container" onclick="goToProductPage('${item.name}')">
-                    <img src="../img/items/${item.img}" alt="${item.name}" width="125" class="item-img">
+                    <img src="../img/items/${item.img}/1.png" alt="${item.name}" width="125" class="item-img">
                 </div>
 
                 <div class="text-container">
                     <div class="name-rate-container">
                         <div class="name-container">
-                            <p class="item-name" onclick="goToProductPage()">${item.name}</p>
+                            <p class="item-name" onclick="goToProductPage('${item.name}')">${item.name}</p>
                         </div>
 
                         <div class="rating">
@@ -160,8 +159,8 @@ function renderStars(rating) {
     return starsHtml;
 }
 
-function goToProductPage(id) {
-    window.location.href = `/html/product.html?id=${id}`;
+function goToProductPage(name) {
+    window.location.href = `/html/product.html?name=${name}`;
 }
 
 initialize();
