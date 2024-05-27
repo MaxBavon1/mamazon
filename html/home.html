@@ -5,12 +5,13 @@
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="../css/style.css"/>
     <link rel="stylesheet" href="../css/items.css"/>
+    <link rel="stylesheet" href="../css/scrollbar.css"/>
     <link rel="icon" href="../img/header/mamazon_icon.png" type="image/x-icon">
     <script src="../js/script.js"></script>
     <script src="../js/items.js" defer></script>
   </head>
   <body>
-    <header id="blue-container">
+    <header class="blue-container">
         <div class="zone">
             <button id="home-button" onclick="goToHomePage()" onmouseenter="PopIn('home-button')" onmouseleave="PopOut('home-button')">
                 <img src="../img/header/logo_white.png" alt="Home page" height="50"/>
@@ -22,9 +23,7 @@
             <button type="button" id="search-button" onclick="search()" onmouseenter="PopIn('search-button')" onmouseleave="PopOut('search-button')">
                 <img src="../img/header/loupe.png" alt="Search" width="35" class="overlay-img"/>
             </button>
-            
         </div>
-        
 
         <div class="zone">
             <div id="basket">
@@ -39,15 +38,13 @@
                         <img src="../img/header/account_parts/head.png" alt="Account" height="50" class="overlay-img" id="account-head"/>
                         <img src="../img/header/account_parts/body.png" alt="Account" height="50" class="overlay-img" id="account-body"/>
                     </div>
-                    
                     <img src="../img/header/account_parts/exterior.png" alt="Account" height="50" class="overlay-img"/>  
                 </button>
             </div>
-
         </div>
+        
     </header>
-
-
+    <div id="blue-container-shadow"></div>
     <div id="grey-container">
         <form id="menu-form">
             <label class="menu-label" id="new-label">
@@ -82,5 +79,27 @@
             </div>
         </div>
     </main>
-    </body>
+  </body>
+    <footer id="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4><a href="about.html">About Us</a></h4>
+                <p>Learn more about Mamazon and our mission.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: support@mamazon.com</p>
+                <p>Phone: 1-800-555-5555</p>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <p>
+                    <a href="#">Facebook</a> |
+                    <a href="#">Twitter</a> |
+                    <a href="#">Instagram</a>
+                </p>
+            </div>
+        </div>
+        <h5 id="blue-copyright">Copyright ©2024 All rights reserved</h5>
+    </footer>
 </html>

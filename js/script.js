@@ -1,26 +1,104 @@
-function onLoad() {
-    document
-        .getElementById("search-button")
-        .addEventListener("click", function () {
-            const query = document.getElementById("main-search-bar").value.trim();
-            if (query) {
-                console.log("Search query:", query);
-            } else {
-                console.log("Please enter a search query");
-            }
-        });
+function handleMenuChange(event) {
+    const underline = document.getElementById('underline');
+    const selectedValue = event.target.value;
 
-    document
-        .getElementById("home-button")
-        .addEventListener("click", goToHomePage);
+    // Remove active class from all labels
+    document.querySelectorAll('.menu-label span').forEach(span => {
+        span.classList.remove('active');
+    });
+
+    // Add active class to the selected label
+    const selectedLabel = event.target.nextElementSibling;
+    selectedLabel.classList.add('active');
+
+    // Adjust the underline position based on the selected value
+    if (selectedValue === 'new') {
+        underline.style.left = '683px';
+        underline.style.width = selectedLabel.offsetWidth + 'px';
+    } else if (selectedValue === 'trending') {
+        underline.style.left = '890px';
+        underline.style.width = selectedLabel.offsetWidth + 'px';
+    } else if (selectedValue === 'about') {
+        underline.style.left = '1130px';
+        underline.style.width = selectedLabel.offsetWidth + 'px';
+    }
+
+    // Store the active menu in localStorage
+    localStorage.setItem('activeMenu', selectedValue);
+
+    // Handle redirection
+    if (selectedValue === 'about') {
+        window.location.href = 'about.html';
+    } else if (selectedValue === 'new') {
+        window.location.href = 'home.html'; // Assuming home.html is the home page
+    }
+    // Add more conditions as needed for other menu items
+}
+
+function positionUnderline(selectedLabel) {
+    const underline = document.getElementById('underline');
+    underline.style.left = selectedLabel.offsetLeft + 'px';
+    underline.style.width = selectedLabel.offsetWidth + 'px';
+}
+
+function setActiveMenu() {
+    const path = window.location.pathname;
+    const page = path.split("/").pop();
+    let activeRadio = null;
+
+    if (page === 'about.html') {
+        activeRadio = document.getElementById('about-button');
+    } else if (page === 'home.html') {
+        activeRadio = document.getElementById('new-button');
+    }
+
+    if (activeRadio) {
+        activeRadio.checked = true;
+
+        // Add active class to the selected label
+        const selectedLabel = activeRadio.nextElementSibling;
+        selectedLabel.classList.add('active');
+
+        // Adjust the underline position based on the selected value
+        const selectedValue = activeRadio.value;
+        const underline = document.getElementById('underline');
+        if (selectedValue === 'new') {
+            underline.style.left = '683px';
+            underline.style.width = selectedLabel.offsetWidth + 'px';
+        } else if (selectedValue === 'trending') {
+            underline.style.left = '890px';
+            underline.style.width = selectedLabel.offsetWidth + 'px';
+        } else if (selectedValue === 'about') {
+            underline.style.left = '1130px';
+            underline.style.width = selectedLabel.offsetWidth + 'px';
+        }
+    } else {
+        // Remove active class from all labels and hide underline
+        document.querySelectorAll('.menu-label span').forEach(span => {
+            span.classList.remove('active');
+        });
+        const underline = document.getElementById('underline');
+        underline.style.width = '0';
+        underline.style.left = '0';
+    }
+}
+
+function onLoad() {
+    document.getElementById("search-button").addEventListener("click", function () {
+        const query = document.getElementById("main-search-bar").value.trim();
+        if (query) {
+            console.log("Search query:", query);
+        } else {
+            console.log("Please enter a search query");
+        }
+    });
+
+    document.getElementById("home-button").addEventListener("click", goToHomePage);
+    document.getElementById("basket-button").addEventListener("click", goToBasket);
 
     function goToHomePage() {
         window.location.href = "/html/home.html";
     }
-
-    document
-        .getElementById("basket-button")
-        .addEventListener("click", goToBasket);
 
     function goToBasket() {
         window.location.href = "/html/home.html";
@@ -29,7 +107,6 @@ function onLoad() {
     let headAnimationInProgress = false;
     let bodyAnimationInProgress = false;
 
-    // Function to handle mouse movement
     document.addEventListener("mousemove", function (event) {
         const accountButton = document.getElementById("account-button");
         const accountHead = document.getElementById("account-head");
@@ -118,57 +195,42 @@ function onLoad() {
         }
     });
 
-    const underline = document.getElementById("underline");
-    const labels = document.querySelectorAll(".menu-label");
+    const menuForm = document.getElementById('menu-form');
+    menuForm.addEventListener('change', handleMenuChange);
 
-    function updateUnderlinePosition() {
-        const checkedRadio = document.querySelector('input[name="menu"]:checked');
-        const checkedLabel = checkedRadio.parentElement;
-        const spanElement = checkedRadio.nextElementSibling;
-
-        const labelRect = checkedLabel.getBoundingClientRect();
-        const containerRect = document
-            .getElementById("grey-container")
-            .getBoundingClientRect();
-
-        underline.style.width = `${spanElement.offsetWidth}px`;
-        underline.style.left = `${labelRect.left - containerRect.left}px`;
-    }
-
-    labels.forEach((label) => {
-        label.addEventListener("click", updateUnderlinePosition);
-    });
-
-    // Initial update on page load to position the underline under "New"
-    updateUnderlinePosition();
+    // Initialize the active menu and underline position
+    setActiveMenu();
 }
 
+document.addEventListener("DOMContentLoaded", onLoad);
+
 function PopIn(element) {
-  const elem = document.getElementById(element);
-  elem.classList.add("pop-in");
-  elem.classList.remove("pop-out");
+    const elem = document.getElementById(element);
+    elem.classList.add("pop-in");
+    elem.classList.remove("pop-out");
 }
 
 function PopOut(element) {
-  const elem = document.getElementById(element);
-  elem.classList.remove("pop-in");
-  elem.classList.add("pop-out");
+    const elem = document.getElementById(element);
+    elem.classList.remove("pop-in");
+    elem.classList.add("pop-out");
 }
 
 function BigPop(element) {
-  const elem = document.getElementById(element);
-  elem.classList.remove("pop-in", "pop-out", "big-pop-out");
-  elem.classList.add("big-pop-in");
+    const elem = document.getElementById(element);
+    elem.classList.remove("pop-in", "pop-out", "big-pop-out");
+    elem.classList.add("big-pop-in");
 
-  setTimeout(() => {
-      elem.classList.remove("big-pop-in");
-      elem.classList.add("big-pop-out");
+    setTimeout(() => {
+        elem.classList.remove("big-pop-in");
+        elem.classList.add("big-pop-out");
 
-      setTimeout(() => {
-          elem.classList.remove("big-pop-out");
-      }, 100);
-  }, 100);
+        setTimeout(() => {
+            elem.classList.remove("big-pop-out");
+        }, 100);
+    }, 100);
 }
+
 
 function init()
 {
