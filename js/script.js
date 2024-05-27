@@ -16,10 +16,10 @@ function handleMenuChange(event) {
         underline.style.left = '683px';
         underline.style.width = selectedLabel.offsetWidth + 'px';
     } else if (selectedValue === 'trending') {
-        underline.style.left = '890px';
+        underline.style.left = '888px';
         underline.style.width = selectedLabel.offsetWidth + 'px';
     } else if (selectedValue === 'about') {
-        underline.style.left = '1130px';
+        underline.style.left = '1121px';
         underline.style.width = selectedLabel.offsetWidth + 'px';
     }
 
@@ -66,10 +66,10 @@ function setActiveMenu() {
             underline.style.left = '683px';
             underline.style.width = selectedLabel.offsetWidth + 'px';
         } else if (selectedValue === 'trending') {
-            underline.style.left = '890px';
+            underline.style.left = '880px';
             underline.style.width = selectedLabel.offsetWidth + 'px';
         } else if (selectedValue === 'about') {
-            underline.style.left = '1130px';
+            underline.style.left = '1121px';
             underline.style.width = selectedLabel.offsetWidth + 'px';
         }
     } else {

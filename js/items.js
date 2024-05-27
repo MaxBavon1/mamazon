@@ -88,7 +88,7 @@ function renderPagination() {
         pageButton.addEventListener('click', () => {
             currentPage = pageNum;
             renderTable();
-            window.scrollTo(0, 0); // Téléporter en haut de la page
+            window.scrollTo(0, 0);
         });
         paginationContainer.appendChild(pageButton);
     };
