@@ -101,7 +101,7 @@ function onLoad() {
     }
 
     function goToBasket() {
-        window.location.href = "/html/home.html";
+        window.location.href = "/html/basket.html";
     }
 
     let headAnimationInProgress = false;

@@ -59,7 +59,7 @@ function renderTable() {
                             <div class="price">
                                 <span class="price-whole">${item.priceWhole}</span><span class="price-decimal">${item.priceDecimal}</span>
                             </div>
-                            <button type="button" class="buy-button" id='${uniqueId}' onclick="BigPop('${uniqueId}')" onclick="AddToCart()" onmouseenter="PopIn('${uniqueId}')" onmouseleave="PopOut('${uniqueId}')" onclick="addToCart('${uniqueId}')"><img id="add-to-cart-img" src="../img/add_to_cart.png"></button>
+                            <button type="button" class="buy-button" class="add-to-basket" id='${uniqueId}' onclick="BigPop('${uniqueId}')" onmouseenter="PopIn('${uniqueId}')" onmouseleave="PopOut('${uniqueId}')"><img id="add-to-cart-img" src="../img/add_to_cart.png"></button>
                         </div>
                     </div>  
                 </div>
