@@ -1,5 +1,4 @@
-async function fetchItems()
-{
+async function fetchItems() {
     try {
         const response = await fetch('../data/json/items.json');
         const items = await response.json();
@@ -10,34 +9,57 @@ async function fetchItems()
     }
 }
 
-function onLoad()
-{
+function onLoad() {
+
 }
 
-function findItem(items, name)
-{
+function renderStars(rating) {
+    const fullStars = Math.floor(rating);
+    const halfStars = rating % 1 >= 0.5 ? 1 : 0;
+    const emptyStars = 5 - fullStars - halfStars;
+    
+    let starsHtml = '';
+
+    for (let i = 0; i < fullStars; i++) {
+        starsHtml += '<div class="star full"></div>';
+    }
+
+    if (halfStars) {
+        starsHtml += '<div class="star half"></div>';
+    }
+
+    for (let i = 0; i < emptyStars; i++) {
+        starsHtml += '<div class="star empty"></div>';
+    }
+
+    return starsHtml;
+}
+
+function findItem(items, name) {
     return items.find(item => item.name === name);
 }
 
-function loadItem(item)
-{
-    let image = document.getElementById("product-img");
+function loadItem(item) {
+    let image = document.getElementById("product-img-1");
     image.src = `../img/items/${item.img}/1.png`;
+    
+    let starsContainer = document.getElementById("stars-container");
+    starsContainer.innerHTML = renderStars(item.rating);
 }
 
-async function init()
-{
+async function init() {
     document.addEventListener("DOMContentLoaded", onLoad());
 
     const queryString = window.location.search;
-
     const urlParams = new URLSearchParams(queryString);
-
     const name = urlParams.get('name');
 
     let items = await fetchItems();
+    let item = findItem(items, name);
 
-    loadItem(findItem(items, name));
+    if (item) {
+        loadItem(item);
+    }
 }
 
 init();
