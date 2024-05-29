@@ -5,6 +5,7 @@
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="../css/style.css"/>
     <link rel="stylesheet" href="../css/product.css"/>
+    <link rel="stylesheet" href="../css/scrollbar.css"/>
     <link rel="icon" href="../img/header/mamazon_icon.png" type="image/x-icon">
     <script src="../js/script.js"></script>
     <script src="../js/product.js" defer></script>
@@ -73,12 +74,12 @@
             </div>
             <div id="product-review">
                 <div id="product-images">
-                    <div><img id="product-img-2" src="../img/items/F-16_fighter_jet/2.png" alt="product-image-2" width="110"></div>
-                    <div><img id="product-img-3" src="../img/items/F-16_fighter_jet/3.png" alt="product-image-3" width="110"></div>
-                    <div><img id="product-img-4" src="../img/items/F-16_fighter_jet/4.png" alt="product-image-4" width="110"></div>
+                    <div class="white-container"><img id="product-img-2" src="../img/items/F-16_fighter_jet/2.png" alt="product-image-2" width="110"></div>
+                    <div class="white-container"><img id="product-img-3" src="../img/items/F-16_fighter_jet/3.png" alt="product-image-3" width="110"></div>
+                    <div class="white-container"><img id="product-img-4" src="../img/items/F-16_fighter_jet/4.png" alt="product-image-4" width="110"></div>
                 </div>
                 <img id="last-review-banner" src="../img/product/Last-review.png" alt="last review" width="120">
-                <div id="review">
+                <div class="white-container" id="review">
                     <div id="stars-container"></div>
                     <h3>Jean D.</h3>
                     <p>Incredible Flight Experience!</p>
@@ -87,9 +88,44 @@
         </div>
 
         <div class="container" id="right-container">
-            <img id="last-review-banner" src="../img/product/.png" alt="last review" width="120">
-            <div id="product-description"></div>
-            <div id="product-shop"></div>
+            <!-- <img id="last-review-banner" src="../img/product/item-name-transition.png" alt="last review" width="64"> -->
+            <div class="white-container" id="product-description">
+                <h3 class="description-text" class="description-title"> Description </h3>
+                <p class="description-text">
+                    Introducing the state-of-the-art Falcon X5 Fighter Jet. A marvel of modern aerospace engineering designed for superior performance in both air-to-air and air-to-ground combat scenarios.
+                </p>
+
+                <h3 class="description-text" class="description-title"> Key Features </h3>
+                <p class="description-text">
+                    - Speed and Agility: Capable of reaching speeds over Mach 2.5, the Falcon X5 offers unmatched agility with advanced thrust vectoring. <br>
+                    - Stealth Technology: Equipped with cutting-edge stealth features including radar-absorbent materials and an optimized airframe to evade detection. <br>
+                    - Advanced Avionics: Integrated with next-generation avionics systems for enhanced situational awareness, including a digital glass cockpit and AI-assisted targeting. <br>
+                </p>
+                
+                <h3 class="description-text" class="description-title"> Specifications </h3>
+                <p class="description-text">
+                    - Length: 19.8 meters. <br>
+                    - Wingspan: 13.6 meters. <br>
+                    - Maximum Takeoff Weight: 25,000 kg. <br>
+                    - Engine: Dual turbofan engines with afterburners. <br>
+                </p>
+            </div>
+            <!-- <img id="blue-orange-front" src="../img/product/blue-orange-front.png" alt="blue-orange-front" width="256"> -->
+            <div class="white-container" id="product-shop">
+                <p class="order-text"> Order Now.</p>
+                <p class="order-text-bold"> In store picku-up:<p>
+                <p class="order-text"> Today at <a href="../html/about.html"> mamazon-paris</a> </p>
+
+                <div class="horizontal-grey-bar"></div>
+
+                <p class="order-text"> Order Today. </p>
+                <p class="order-text-bold"> Free Delivery <p class="order-text"> in less than an hour by </p> drone. </p>
+                
+                <div class="horizontal-grey-bar"></div>
+
+                <p class="order-text"> Deliver to <a href="../html/about.html"> Mamazon Paris </a> </p>
+                <h2> En Stock </h2>
+            </div>  
         </div>
     </div>
     
