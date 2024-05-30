@@ -81,7 +81,7 @@
 #review {
     height: 25%;
     position: absolute;
-    top: 55%;
+    top: 52.5%;
     left: 5%;
     right: 5%;
     margin: auto;
@@ -91,7 +91,7 @@
 
 #last-review-banner {
     position: absolute;
-    top: 51%;
+    top: 48%;
     left: 8%;
     z-index: 1;
 }
@@ -308,4 +308,31 @@
     font-size: 30px;
     color: white;
     z-index: 5;
+}
+
+#name-container {
+    z-index: 5;
+    display: inline-block;
+    position:absolute;
+    background-color: #252F3D;
+    height: 70px;
+    top: 8.5%;
+    left: 8.9%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+}
+
+#item-name {
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: 30px;
+    font-style: italic;
+    margin: 8px 15px 0px 10px;
+}
+
+#name-review {
+    font-size: 13px;
+    margin-left: 10px;
+    display: flex;
 }
