@@ -27,14 +27,14 @@ function renderBasketItems() {
         itemDiv.classList.add("basket-item");
         itemDiv.innerHTML = `
             <div class="basket-item-img">
-                <img src="../img/items/${item.img}/1.png" alt="${item.name}" width="128">
+                <img class="basket-item-image" src="../img/items/${item.img}/1.png" alt="${item.name}" width="128">
             </div>
             <div class="basket-item-name">
-                <h3> ${item.name} </h3>
+                <h3 class="item-name"> ${item.name} </h3>
                 <p> In stock</p>
                 <label for="gift"> <input id="gift" type="checkbox"> This is a gift </label>
                 
-                <div>
+                <div">
                     <select id="quantity-select-${item.name}">
                         <option value="1"> Qty : 1 </option>
                         <option value="2"> Qty : 2 </option>
@@ -45,7 +45,7 @@ function renderBasketItems() {
                         <option value="7"> Qty : 7 </option>
                         <option value="8"> Qty : 8 </option>
                         <option value="9"> Qty : 9 </option>
-                        <option value="10+"> Qty : 10+ </option>
+                        <option value="10"> Qty : 10 </option>
                     </select>
                     <button onclick="deleteBasketItem('${item.name}')"> Delete </button>
                 </div>
@@ -59,16 +59,15 @@ function renderBasketItems() {
 
         const selectQuantity = document.getElementById(`quantity-select-${item.name}`);
 
-        if (basketItem.quantity > 9) {
-            selectQuantity.value = "10+";
-        } else {
-            selectQuantity.value = basketItem.quantity.toString();
-        }
+        selectQuantity.value = basketItem.quantity.toString();
 
         selectQuantity.addEventListener('change', (event) => {
-            const newQuantity = event.target.value === "10+" ? 10 : parseInt(event.target.value, 10);
-            updateItemQuantity(item.name, newQuantity);
-        });
+            updateItemQuantity(item.name, parseInt(event.target.value, 10));
+        })
+
+        // Product Page for each image
+        itemDiv.querySelector(".basket-item-image").addEventListener("click", () => goToProductPage(item.name));
+        itemDiv.querySelector(".item-name").addEventListener("click", () => goToProductPage(item.name));
     });
 }
 
