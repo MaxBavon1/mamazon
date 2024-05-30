@@ -22,14 +22,13 @@
             <button type="button" id="search-button" onclick="search()" onmouseenter="PopIn('search-button')" onmouseleave="PopOut('search-button')">
                 <img src="../img/header/loupe.png" alt="Search" width="35" class="overlay-img"/>
             </button>
-            
         </div>
-        
 
         <div class="zone">
             <div id="basket">
                 <button id="basket-button" onclick="goToBasket()" onmouseenter="PopIn('basket-button')" onmouseleave="PopOut('basket-button')">
                     <img src="../img/header/basket.png" alt="Basket" height="50"/>
+                    <span id="basket-count">0</span>
                 </button>
             </div>
             <div id="account">
@@ -39,11 +38,9 @@
                         <img src="../img/header/account_parts/head.png" alt="Account" height="50" class="overlay-img" id="account-head"/>
                         <img src="../img/header/account_parts/body.png" alt="Account" height="50" class="overlay-img" id="account-body"/>
                     </div>
-                    
                     <img src="../img/header/account_parts/exterior.png" alt="Account" height="50" class="overlay-img"/>  
                 </button>
             </div>
-
         </div>
     </header>
 
@@ -109,8 +106,8 @@
             <div class="footer-section">
                 <h4>Follow Us</h4>
                 <p>
-                    <a href="#">Facebook</a> |
-                    <a href="#">Twitter</a> |
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
                     <a href="#">Instagram</a>
                 </p>
             </div>

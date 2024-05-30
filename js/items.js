@@ -34,6 +34,8 @@ function addItemToBasket(newItemName, uniqueId) {
         });
     }
 
+    updateBasketCount();
+
     saveBasketItems();
 }
 
@@ -93,6 +95,7 @@ function renderTable() {
     });
 
     renderPagination();
+    updateBasketCount();
 }
 
 function renderPagination() {
