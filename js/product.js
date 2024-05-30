@@ -43,8 +43,11 @@ function loadItem(item) {
     let image = document.getElementById("product-img-1");
     image.src = `../img/items/${item.img}/1.png`;
     
-    let starsContainer = document.getElementById("stars-container");
-    starsContainer.innerHTML = renderStars(item.rating);
+    let starsContainer1 = document.getElementById("stars-container-1");
+    starsContainer1.innerHTML = renderStars(item.rating);
+    
+    let starsContainer2 = document.getElementById("stars-container-2");
+    starsContainer2.innerHTML = renderStars(item.rating);
 }
 
 async function init() {

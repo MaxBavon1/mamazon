@@ -77,7 +77,7 @@
                 </div>
                 <img id="last-review-banner" src="../img/product/Last-review.png" alt="last review" width="120">
                 <div class="white-container" id="review">
-                    <div id="stars-container"></div>
+                    <div id="stars-container-1"></div>
                     <h3>Jean D.</h3>
                     <p>Incredible Flight Experience!</p>
                 </div>
@@ -96,31 +96,38 @@
             </div>
 
             <div>
-                <img id="item-name-trans" src="../img/product/item-name-transition.png" alt="" width="50">
-                <div id="name-container">
-                    <span id="item-name">The Elephant in the Room</span>
-                    <div id="name-review">
-                        <div id="stars-container"></div>
-                        <span>3,243</span>
+                <div id="full-name-container">
+                    <div id="name-container-left">
+                        <img id="item-name-trans" src="../img/product/item-name-transition.png" alt=""height="70px">
+                        <div id="name-container">
+                            <span id="item-name">The Elephant in the Room</span>
+                            <div id="name-review">
+                                <div id="stars-container-2"></div>
+                                <span id="nb-rating">3,243</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <img id="item-name-right" src="../img/product/right-name.png" alt="" height="70px">
                     </div>
                 </div>
             </div>
 
             <div class="white-container" id="mid-container">
                 <div id="product-description">
-                    <h3 class="description-text" class="description-title"> Description </h3>
+                    <h3 class="description-title"> Description </h3>
                     <p class="description-text">
                         Introducing the state-of-the-art Falcon X5 Fighter Jet. A marvel of modern aerospace engineering designed for superior performance in both air-to-air and air-to-ground combat scenarios.
                     </p>
 
-                    <h3 class="description-text" class="description-title"> Key Features </h3>
+                    <h3 class="description-title"> Key Features </h3>
                     <p class="description-text">
                         - Speed and Agility: Capable of reaching speeds over Mach 2.5, the Falcon X5 offers unmatched agility with advanced thrust vectoring. <br>
                         - Stealth Technology: Equipped with cutting-edge stealth features including radar-absorbent materials and an optimized airframe to evade detection. <br>
                         - Advanced Avionics: Integrated with next-generation avionics systems for enhanced situational awareness, including a digital glass cockpit and AI-assisted targeting. <br>
                     </p>
                     
-                    <h3 class="description-text" class="description-title"> Specifications </h3>
+                    <h3 class="description-title"> Specifications </h3>
                     <p class="description-text">
                         - Length: 19.8 meters. <br>
                         - Wingspan: 13.6 meters. <br>
@@ -165,7 +172,7 @@
                     </select>
                 </div>
 
-                <button id="add-to-cart-button" type="button"> Add to <span> Cart </span> </button>
+                <button id="add-to-cart-button" type="button" onmouseenter="PopIn('add-to-cart-button')" onmouseleave="PopOut('add-to-cart-button')" onclick="BigPop('add-to-cart-button')"> Add to <span> Cart </span> </button>
             </div> 
         </div>
     </div>
