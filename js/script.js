@@ -234,6 +234,10 @@ function BigPop(element) {
     }, 100);
 }
 
+function goToProductPage(name) {
+    window.location.href = `/html/product.html?name=${name}`;
+}
+
 function saveBasketItems()
 {
     localStorage.setItem("basketItems", JSON.stringify(basketItems));
@@ -252,6 +256,32 @@ function getBasketTotalItems()
         total += item.quantity;
     });
     return total;
+}
+
+function addItemToBasket(newItemName, uniqueId) {
+    BigPop(uniqueId);
+
+    const newItem = items.find(item => item.name === newItemName);
+
+    if (!newItem) {
+        console.error(`Item with name ${newItemName} not found in items list.`);
+        return;
+    }
+
+    const existingItemIndex = basketItems.findIndex(item => item.item.name === newItemName);
+
+    if (existingItemIndex !== -1) {
+        basketItems[existingItemIndex].quantity++;
+    } else {
+        basketItems.push({
+            item: newItem,
+            quantity: 1
+        });
+    }
+
+    updateBasketCount();
+
+    saveBasketItems();
 }
 
 function updateBasketCount()

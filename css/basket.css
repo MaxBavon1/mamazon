@@ -51,6 +51,8 @@
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
+    width: 100%;
+    height: 100%;
 }
 
 .basket-item {
@@ -70,6 +72,7 @@
     width: 20%;
     padding: 0px 10px;
     border: rgba(0, 0, 0, 0.15) solid 1px;
+    cursor: pointer;
 }
 
 .basket-item-img img {
@@ -90,6 +93,12 @@
 .basket-item-name h3 {
     margin: 0px;
 }
+.basket-item-name h3:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
 .basket-item-name p {
     margin: 0px;
     color: #669B30;
@@ -113,7 +122,10 @@
     background-color: rgba(0, 0, 0, 0.05);
     border-radius: 4px;
 }
-
+.basket-item-name button:hover {
+    background-color: #F5F5F5;
+    transform: scale(0.95);
+}
 
 .basket-item-price {
     border: rgba(0, 0, 0, 0.15) solid 1px;

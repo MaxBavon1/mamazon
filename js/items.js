@@ -13,32 +13,6 @@ let currentPage = 1;
 const itemsPerPage = 25;
 let items = [];
 
-function addItemToBasket(newItemName, uniqueId) {
-    BigPop(uniqueId);
-
-    const newItem = items.find(item => item.name === newItemName);
-
-    if (!newItem) {
-        console.error(`Item with name ${newItemName} not found in items list.`);
-        return;
-    }
-
-    const existingItemIndex = basketItems.findIndex(item => item.item.name === newItemName);
-
-    if (existingItemIndex !== -1) {
-        basketItems[existingItemIndex].quantity++;
-    } else {
-        basketItems.push({
-            item: newItem,
-            quantity: 1
-        });
-    }
-
-    updateBasketCount();
-
-    saveBasketItems();
-}
-
 async function initialize() {
     items = await fetchItems();
     renderTable();
@@ -184,10 +158,6 @@ function renderStars(rating) {
     }
 
     return starsHtml;
-}
-
-function goToProductPage(name) {
-    window.location.href = `/html/product.html?name=${name}`;
 }
 
 initialize();
