@@ -65,26 +65,34 @@
         </form>
         <div id="underline"></div>
     </div>
-*
-        <div id="main-container">
 
-            <div class="container" id="left-basket-container">
-                <div id="blue-basket-head">
-                    <img src="../img/product/blue_square.png" alt="basket-header" id="blue-basket-color">
-                    <img src="../img/icon/basket.png" alt="basket-icon" id="basket-icon">
-                </div>
-                <div id="basket-items">
-                    <!-- Basket items will be added here -->
-                </div>
+    <div id="main-container">
+        <div class="container" id="left-basket-container">
+            <div id="blue-basket-head">
+                <img src="../img/product/blue_square.png" alt="basket-header" id="blue-basket-color">
+                <img src="../img/icon/basket.png" alt="basket-icon" id="basket-icon">
             </div>
-
-            <div id="right-basket-zone">
-                <div class="container" id="price-container"></div>
-                <div class="container" id="recom-container"></div>
-            </div>
-
+            <div id="basket-items"></div>
         </div>
-
+        <div id="right-basket-zone">
+            <div class="container" id="price-container">
+                <div id="price-inside-container">
+                    <p>Subtotal (<span id="number-items">1</span> item):</p>
+                    <div id="price-display">
+                        <h2 id="subtotal-whole-price"> $29 </h2>
+                        <span id="subtotal-decimal-price">35</span>
+                    </div>
+                    <button>Proceed to checkout</button>
+                </div>
+            </div>
+            <div class="container" id="recom-container">
+                <div id="recom-text">
+                    <h2>Recommended for <span>You</span></h2>
+                </div>
+                <div></div>
+            </div>
+        </div>
+    </div>
 
     </body>
     <footer id="footer">

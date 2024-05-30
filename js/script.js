@@ -231,10 +231,22 @@ function BigPop(element) {
     }, 100);
 }
 
+function saveBasketItems()
+{
+    localStorage.setItem("basketItems", JSON.stringify(basketItems));
+}
+
+function loadBasketItems()
+{
+    basketItems = JSON.parse(localStorage.getItem("basketItems")) || [];
+}
 
 function init()
 {
     document.addEventListener("DOMContentLoaded", onLoad);
 }
+
+let basketItems = [];
+
 
 init();

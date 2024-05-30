@@ -13,6 +13,30 @@ let currentPage = 1;
 const itemsPerPage = 25;
 let items = [];
 
+function addItemToBasket(newItemName, uniqueId) {
+    BigPop(uniqueId);
+
+    const newItem = items.find(item => item.name === newItemName);
+
+    if (!newItem) {
+        console.error(`Item with name ${newItemName} not found in items list.`);
+        return;
+    }
+
+    const existingItemIndex = basketItems.findIndex(item => item.item.name === newItemName);
+
+    if (existingItemIndex !== -1) {
+        basketItems[existingItemIndex].quantity++;
+    } else {
+        basketItems.push({
+            item: newItem,
+            quantity: 1
+        });
+    }
+
+    saveBasketItems();
+}
+
 async function initialize() {
     items = await fetchItems();
     renderTable();
@@ -59,7 +83,7 @@ function renderTable() {
                             <div class="price">
                                 <span class="price-whole">${item.priceWhole}</span><span class="price-decimal">${item.priceDecimal}</span>
                             </div>
-                            <button type="button" class="buy-button" class="add-to-basket" id='${uniqueId}' onclick="BigPop('${uniqueId}')" onmouseenter="PopIn('${uniqueId}')" onmouseleave="PopOut('${uniqueId}')"><img id="add-to-cart-img" src="../img/add_to_cart.png"></button>
+                            <button type="button" class="buy-button" class="add-to-basket" id='${uniqueId}' onclick="addItemToBasket('${item.name}', '${uniqueId}')" onmouseenter="PopIn('${uniqueId}')" onmouseleave="PopOut('${uniqueId}')"><img id="add-to-cart-img" src="../img/add_to_cart.png"></button>
                         </div>
                     </div>  
                 </div>
