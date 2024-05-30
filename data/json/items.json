@@ -127,10 +127,5 @@
   "name": "An empty can of spinach", "priceWhole": "$8", "priceDecimal": "10", "img": "empty_spinach_can", "rating": 4.5, "reviews": 82, 
   "lastReview": "Great for crafts.",
   "desc": "An empty can that once held spinach."
-},
-{
-  "name": "An empty can of spinach", "priceWhole": "$8", "priceDecimal": "10", "img": "empty_spinach_can", "rating": 4.5, "reviews": 82, 
-  "lastReview": "Great for crafts.",
-  "desc": "An empty can that once held spinach."
 }
 ]
