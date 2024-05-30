@@ -1,9 +1,18 @@
 function deleteBasketItem(oldItemName) {
     console.log(oldItemName);
     basketItems = basketItems.filter(item => item.item.name !== oldItemName);
-    saveBasketItems();
-    renderBasketItems();
-    renderSubTotal();
+    
+    updateBasketPage();
+}
+
+function updateItemQuantity(itemName, newQuantity) {
+    const item = basketItems.find(basketItem => basketItem.item.name === itemName);
+
+    if (item) {
+        item.quantity = newQuantity;
+    }
+
+    updateBasketPage();
 }
 
 function renderBasketItems() {
@@ -26,7 +35,7 @@ function renderBasketItems() {
                 <label for="gift"> <input id="gift" type="checkbox"> This is a gift </label>
                 
                 <div>
-                    <select>
+                    <select id="quantity-select-${item.name}">
                         <option value="1"> Qty : 1 </option>
                         <option value="2"> Qty : 2 </option>
                         <option value="3"> Qty : 3 </option>
@@ -46,7 +55,20 @@ function renderBasketItems() {
                 <p> ${item.priceDecimal} </p>
             </div>`;
 
-        itemsDiv.appendChild(itemDiv);
+        itemsDiv.appendChild(itemDiv); // Append the itemDiv before accessing the select element
+
+        const selectQuantity = document.getElementById(`quantity-select-${item.name}`);
+
+        if (basketItem.quantity > 9) {
+            selectQuantity.value = "10+";
+        } else {
+            selectQuantity.value = basketItem.quantity.toString();
+        }
+
+        selectQuantity.addEventListener('change', (event) => {
+            const newQuantity = event.target.value === "10+" ? 10 : parseInt(event.target.value, 10);
+            updateItemQuantity(item.name, newQuantity);
+        });
     });
 }
 
@@ -61,8 +83,8 @@ function calculateTotalPrice(basketItems) {
         const wholePrice = parseInt(item.priceWhole.replace(/[\$,]/g, ''), 10);
         const decimalPrice = parseInt(item.priceDecimal, 10);
 
-        totalWholePrice += wholePrice;
-        totalDecimalPrice += decimalPrice;
+        totalWholePrice += wholePrice * basketItem.quantity;
+        totalDecimalPrice += decimalPrice * basketItem.quantity;
     });
 
     // Handle decimal overflow (e.g., 100 cents = 1 dollar)
@@ -80,17 +102,23 @@ function calculateTotalPrice(basketItems) {
 }
 
 function renderSubTotal() {
-    document.getElementById("number-items").innerText = basketItems.length;
+    document.getElementById("number-items").innerText = getBasketTotalItems();
     let prices = calculateTotalPrice(basketItems);
     document.getElementById("subtotal-whole-price").innerText = prices.wholePrice;
     document.getElementById("subtotal-decimal-price").innerText = prices.decimalPrice;
 }
 
+function updateBasketPage()
+{
+    saveBasketItems();
+    renderBasketItems();
+    renderSubTotal();
+    updateBasketCount();
+}
 
 function onLoad() {
     loadBasketItems();
-    renderBasketItems();
-    renderSubTotal();
+    updateBasketPage();
 }
 
 document.addEventListener("DOMContentLoaded", onLoad);

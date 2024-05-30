@@ -241,6 +241,21 @@ function loadBasketItems()
     basketItems = JSON.parse(localStorage.getItem("basketItems")) || [];
 }
 
+function getBasketTotalItems()
+{
+    let total = 0;
+
+    basketItems.forEach(item => {
+        total += item.quantity;
+    });
+    return total;
+}
+
+function updateBasketCount()
+{
+    document.getElementById("basket-count").textContent = getBasketTotalItems();
+}
+
 function init()
 {
     document.addEventListener("DOMContentLoaded", onLoad);
