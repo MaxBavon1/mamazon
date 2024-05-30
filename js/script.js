@@ -116,43 +116,77 @@ function setupMouseAnimations() {
         const withinTopDistance = mouseY >= rect.top - 100;
         const withinBottomDistance = mouseY <= rect.bottom + 100;
 
-        if (withinLeftDistance && withinRightDistance && withinTopDistance && withinBottomDistance) {
-            if (!headAnimationInProgress && !accountHead.classList.contains('move-down-head')) {
+        if (
+            withinLeftDistance &&
+            withinRightDistance &&
+            withinTopDistance &&
+            withinBottomDistance
+        ) {
+            if (
+                !headAnimationInProgress &&
+                !accountHead.classList.contains("move-down-head")
+            ) {
                 headAnimationInProgress = true;
-                accountHead.classList.remove('move-up-head');
-                accountHead.classList.add('move-down-head');
-                accountHead.addEventListener("animationend", function () {
-                    accountHead.style.display = 'none';
-                    headAnimationInProgress = false;
-                }, { once: true });
+                accountHead.classList.remove("move-up-head");
+                accountHead.classList.add("move-down-head");
+                accountHead.addEventListener(
+                    "animationend",
+                    function () {
+                        accountHead.style.display = "none";
+                        headAnimationInProgress = false;
+                    },
+                    { once: true }
+                );
             }
-            if (!bodyAnimationInProgress && !accountBody.classList.contains('move-down-body')) {
+            if (
+                !bodyAnimationInProgress &&
+                !accountBody.classList.contains("move-down-body")
+            ) {
                 bodyAnimationInProgress = true;
-                accountBody.classList.remove('move-up-body');
-                accountBody.classList.add('move-down-body');
-                accountBody.addEventListener("animationend", function () {
-                    accountBody.style.display = 'none';
-                    bodyAnimationInProgress = false;
-                }, { once: true });
+                accountBody.classList.remove("move-up-body");
+                accountBody.classList.add("move-down-body");
+                accountBody.addEventListener(
+                    "animationend",
+                    function () {
+                        accountBody.style.display = "none";
+                        bodyAnimationInProgress = false;
+                    },
+                    { once: true }
+                );
             }
         } else {
-            if (!headAnimationInProgress && accountHead.classList.contains('move-down-head')) {
+            if (
+                !headAnimationInProgress &&
+                accountHead.classList.contains("move-down-head")
+            ) {
                 headAnimationInProgress = true;
-                accountHead.classList.remove('move-down-head');
-                accountHead.style.display = 'block';
-                accountHead.classList.add('move-up-head');
-                accountHead.addEventListener("animationend", function () {
-                    headAnimationInProgress = false;
-                }, { once: true });
+                accountHead.classList.remove("move-down-head");
+                accountHead.style.display = "block";
+                accountHead.classList.add("move-up-head");
+                accountHead.addEventListener(
+                    "animationend",
+                    function () {
+                        headAnimationInProgress = false;
+                    },
+                    { once: true }
+                );
             }
-            if (!bodyAnimationInProgress && accountBody.classList.contains('move-down-body')) {
+
+            if (
+                !bodyAnimationInProgress &&
+                accountBody.classList.contains("move-down-body")
+            ) {
                 bodyAnimationInProgress = true;
-                accountBody.classList.remove('move-down-body');
-                accountBody.style.display = 'block';
-                accountBody.classList.add('move-up-body');
-                accountBody.addEventListener("animationend", function () {
-                    bodyAnimationInProgress = false;
-                }, { once: true });
+                accountBody.classList.remove("move-down-body");
+                accountBody.style.display = "block";
+                accountBody.classList.add("move-up-body");
+                accountBody.addEventListener(
+                    "animationend",
+                    function () {
+                        bodyAnimationInProgress = false;
+                    },
+                    { once: true }
+                );
             }
         }
     });
