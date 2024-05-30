@@ -35,7 +35,7 @@ td {
     box-sizing: border-box;
     overflow: hidden;
     border-radius: 30px;
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 6px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 3px;
 }
 
 .item-container {
@@ -174,10 +174,9 @@ td {
     bottom: 10px;
     border: rgba(0, 0, 0, 0.05) solid 1px;
     display: flex;
-    justify-content: space-between; /* Sépare le prix et le bouton */
+    justify-content: space-between;
     align-items: center;
-    padding: 0 10px; /* Ajoute du padding interne pour espacer les éléments */
-    box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 6px;
+    padding: 0 10px;
 }
 
 .price {
@@ -205,7 +204,7 @@ td {
     position: relative;
     width: 110%;
     border-radius: 25px;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 6px;
+
 }
 
 p {
