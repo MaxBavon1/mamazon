@@ -200,6 +200,9 @@ function onLoad() {
 
     // Initialize the active menu and underline position
     setActiveMenu();
+
+    loadBasketItems();
+    updateBasketCount();
 }
 
 document.addEventListener("DOMContentLoaded", onLoad);
