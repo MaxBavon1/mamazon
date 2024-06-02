@@ -4,7 +4,7 @@
     margin: 0 auto;
     top: 50px;
     width: 82%;
-    height: 650px;
+    height: 700px;
     display: flex;
     gap: 5%;
 }
@@ -13,7 +13,7 @@
     display: flex;
     position: relative;
     background-color: #F5F5F5;
-    border: rgba(0, 0, 0, 0.04) solid 1px;
+    border: rgba(0, 0, 0, 0.1) solid 1px;
     border-radius: 50px;
     overflow: hidden;
 }
@@ -24,7 +24,7 @@
     max-height: 100%;
     display: flex;
     flex-direction: column;
-    box-shadow: rgba(50, 50, 93, 0.2) 0px 30px 30px -12px inset, rgba(0, 0, 0, 0.2) 0px 18px 18px -18px inset;
+    box-shadow: rgba(50, 50, 93, 0.4) 0px 30px 30px -18px inset, rgba(0, 0, 0, 0.4) 0px 18px 18px -18px inset;
 }
 
 #blue-basket-head {
@@ -47,7 +47,6 @@
 
 #basket-items {
     align-items: center;
-    justify-content: center;
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
@@ -57,21 +56,20 @@
 
 .basket-item {
     background-color: white;
-    width: 80%;
-    height: 120px;
-    border-radius: 20px;
-    border: rgba(0, 0, 0, 0.15) solid 1px;
+    width: 85%;
+    height: 130px;
+    border-radius: 30px;
     margin: 30px 30px 15px 30px;
     display: flex;
     flex-direction: row;
     overflow: hidden;
-    min-height: 120px;
+    min-height: 130px;
+    border: rgba(37, 47, 61, 0.2) solid 1px;
 }
 
 .basket-item-img {
     width: 20%;
-    padding: 0px 10px;
-    border: rgba(0, 0, 0, 0.15) solid 1px;
+    padding: 5px;
     cursor: pointer;
 }
 
@@ -83,7 +81,7 @@
 }
 
 .basket-item-name {
-    border: rgba(0, 0, 0, 0.15) solid 1px;
+    box-shadow: rgba(0, 0, 0, 0.22) -4px 0px 15px;
     width: 60%;
     display: flex;
     flex-direction: column;
@@ -92,7 +90,9 @@
 
 .basket-item-name h3 {
     margin: 0px;
+    font-size: 20px;
 }
+
 .basket-item-name h3:hover {
     text-decoration: underline;
     cursor: pointer;
@@ -101,6 +101,7 @@
 
 .basket-item-name p {
     margin: 0px;
+    font-weight: normal;
     color: #669B30;
 }
 .basket-item-name input {
@@ -110,25 +111,8 @@
     display: flex;
     gap: 10px;
 }
-.basket-item-name select {
-    margin: 1px;
-    width: 20%;
-    border-radius: 4px;
-}
-.basket-item-name button {
-    margin: 1px;
-    width: 20%;
-    border: rgba(0, 0, 0, 0.1) solid 1px;
-    background-color: rgba(0, 0, 0, 0.05);
-    border-radius: 4px;
-}
-.basket-item-name button:hover {
-    background-color: #F5F5F5;
-    transform: scale(0.95);
-}
 
 .basket-item-price {
-    border: rgba(0, 0, 0, 0.15) solid 1px;
     width: 20%;
     display: flex;
     justify-content: center;
@@ -192,7 +176,7 @@
 #checkout-button {
     position: absolute;
     left: 1140px;
-    top: 110px;
+    top: 120px;
     background-color: #FAC710;
     background-image: linear-gradient(315deg, #f5ab24 0%, #FAC710 74%);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px;
@@ -211,6 +195,7 @@
     height: 60%;
     display: flex;
     flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 5px;
 }
 
 #recom-text {
@@ -230,3 +215,94 @@
 #recom-text h2 span {
     color: #f3a33b;
 }
+
+#gift {
+    font-weight: light;
+    font-size: 15px;
+}
+
+.quantity-item select {
+    margin-top: 10px;
+    padding-left: 10px;
+    width: 100px;
+    height: 20px;
+    border-radius: 25px;
+    border: 1px solid rgb(37, 47, 61, 0.1);
+    background-color: #f5f5f5;
+
+    color: #2c3e50;
+    appearance: none;
+    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px 12px;
+}
+
+.quantity-item select:hover {
+    outline:none;
+    border: rgb(37, 47, 61, 0.2) solid 1px;
+}
+
+.quantity-item select:focus {
+    outline:none;
+    border: rgb(37, 47, 61, 0.5) solid 1px;
+}
+
+
+
+#delete-button {
+    margin-top: 10px;
+    width: 100px;
+    height: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    background: #6ECEE2;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+   }
+   
+#delete-button, #delete-button span {
+    transition: 200ms;
+   }
+   
+   #delete-button .text {
+    transform: translateX(10px);
+    color: white;
+    font-weight: bold;
+   }
+   
+   #delete-button .icon {
+    transform: translateX(30px);
+    height: 10px;
+    width: 10px;
+    display: flex;
+    align-items: center;
+   }
+   
+   #delete-button svg {
+    width: 15px;
+    fill: #eee;
+   }
+   
+   #delete-button:hover {
+    background: #ff3636;
+   }
+   
+   #delete-button:hover .text {
+    color: transparent;
+   }
+   
+   #delete-button:hover .icon {
+    width: 150px;
+    border-left: none;
+    transform: translateX(-3px);
+   }
+   
+   #delete-button:focus {
+    outline: none;
+   }
+   
+   #delete-button:active .icon svg {
+    transform: scale(0.8);
+   }

@@ -52,27 +52,38 @@ function renderBasketItems() {
         itemDiv.classList.add("basket-item");
         itemDiv.innerHTML = `
             <div class="basket-item-img">
-                <img class="basket-item-image" src="../img/items/${item.img}/1.png" alt="${item.name}" width="128">
+                <img  id="${item.name}-img" class="basket-item-image" src="../img/items/${item.img}/1.png" alt="${item.name}" width="128" onmouseenter="PopIn('${item.name}-img')" onmouseleave="PopOut('${item.name}-img')">
             </div>
             <div class="basket-item-name">
                 <h3 class="item-name"> ${item.name} </h3>
                 <p> In stock</p>
-                <label for="gift"> <input id="gift" type="checkbox"> This is a gift </label>
+                <label id="gift" for="gift"> <input id="gift" type="checkbox"> This is a gift </label>
                 
-                <div">
-                    <select id="quantity-select-${item.name}">
-                        <option value="1"> Qty : 1 </option>
-                        <option value="2"> Qty : 2 </option>
-                        <option value="3"> Qty : 3 </option>
-                        <option value="4"> Qty : 4 </option>
-                        <option value="5"> Qty : 5 </option>
-                        <option value="6"> Qty : 6 </option>
-                        <option value="7"> Qty : 7 </option>
-                        <option value="8"> Qty : 8 </option>
-                        <option value="9"> Qty : 9 </option>
-                        <option value="10"> Qty : 10 </option>
-                    </select>
-                    <button onclick="deleteBasketItem('${item.name}')"> Delete </button>
+                <div>
+                    <div class="quantity-item">
+                        <select id="quantity-select-${item.name}">
+                            <option value="1"> Qty : 1 </option>
+                            <option value="2"> Qty : 2 </option>
+                            <option value="3"> Qty : 3 </option>
+                            <option value="4"> Qty : 4 </option>
+                            <option value="5"> Qty : 5 </option>
+                            <option value="6"> Qty : 6 </option>
+                            <option value="7"> Qty : 7 </option>
+                            <option value="8"> Qty : 8 </option>
+                            <option value="9"> Qty : 9 </option>
+                            <option value="10"> Qty : 10 </option>
+                        </select>
+                    </div>
+                        
+                    <button id="delete-button" class="noselect" onclick="deleteBasketItem('${item.name}')">
+                        <span class="text">Delete</span>
+                        <span class="icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z">
+                                </path>
+                            </svg>
+                        </span>
+                    </button>
                 </div>
             </div>
             <div class="basket-item-price">

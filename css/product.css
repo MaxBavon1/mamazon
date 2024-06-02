@@ -287,6 +287,11 @@
     border: rgb(26, 31, 41, 0.3) solid 1px;
 }
 
+.quantity-select select:focus {
+    outline:none;
+    border: rgb(37, 47, 61, 0.5) solid 1px;
+}
+
 .image-shop-container {
     position: absolute;
     top: 9%;
