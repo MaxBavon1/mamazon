@@ -110,9 +110,8 @@ function handleRedirection(selectedValue) {
             break;
         case 'about':
             if (!window.location.href.includes('about')) {
-                goToHomePage();
+                goToAboutPage();
             }
-            goToAboutPage();
             break;
         default:
             break;
@@ -120,21 +119,25 @@ function handleRedirection(selectedValue) {
 }
 
 function initializeMenu() {
-    const activeMenu = localStorage.getItem('activeMenu');
-    const menuItems = document.querySelectorAll('#menu-form .menu-label input[type="radio"]');
+    if (!window.location.href.includes('basket') && !window.location.href.includes('product')) {
+        const activeMenu = localStorage.getItem('activeMenu');
+        const menuItems = document.querySelectorAll('#menu-form .menu-label input[type="radio"]');
 
-    if (activeMenu) {
-        const activeRadio = document.querySelector(`#menu-form input[value=${activeMenu}]`);
-        if (activeRadio) {
-            activeRadio.checked = true;
-            const index = Array.from(menuItems).indexOf(activeRadio);
-            updateUnderlinePosition(index);
-            activeRadio.nextElementSibling.classList.add('active');
+        handleRedirection(activeMenu);
+
+        if (activeMenu) {
+            const activeRadio = document.querySelector(`#menu-form input[value=${activeMenu}]`);
+            if (activeRadio) {
+                activeRadio.checked = true;
+                const index = Array.from(menuItems).indexOf(activeRadio);
+                updateUnderlinePosition(index);
+                activeRadio.nextElementSibling.classList.add('active');
+            }
+        } else if (menuItems.length > 0) {
+            menuItems[0].checked = true;
+            updateUnderlinePosition(0);
+            menuItems[0].nextElementSibling.classList.add('active');
         }
-    } else if (menuItems.length > 0) {
-        menuItems[0].checked = true;
-        updateUnderlinePosition(0);
-        menuItems[0].nextElementSibling.classList.add('active');
     }
 }
 
@@ -353,7 +356,6 @@ function itemsFilterByExpensive() {
     items = itemList.slice().sort((a, b) => {
         const aPrice = parseFloat(a.priceWhole.replace('$', '').replace(/,/g, '')) + parseFloat(a.priceDecimal) / 100;
         const bPrice = parseFloat(b.priceWhole.replace('$', '').replace(/,/g, '')) + parseFloat(b.priceDecimal) / 100;
-        console.log("A item : " + a.name + " price : " + aPrice + " B item : " + b.name + " price : " + bPrice);
         return bPrice - aPrice;
     });
     document.dispatchEvent(new Event('searchUpdated'));
