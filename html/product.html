@@ -83,13 +83,23 @@
     <div id="main-container">
         <div class="container" id="left-container">
             <div id="product-image-1">
-                <img id="product-img-1" src="" alt="product-image-1" width="128">
+                <img id="product-img-1" src="" alt="product-image-1" width="128" onmouseenter="PopIn('product-img-1')" onmouseleave="PopOut('product-img-1')" onclick="openPopup()">
             </div>
             <div id="product-review">
                 <div id="product-images">
-                    <div class="white-container"><img id="product-img-2" src="" alt="product-image-2" width="110" onclick="switchProductImage('2')"></div>
-                    <div class="white-container"><img id="product-img-3" src="" alt="product-image-3" width="110" onclick="switchProductImage('3')"></div>
-                    <div class="white-container"><img id="product-img-4" src="" alt="product-image-4" width="110" onclick="switchProductImage('4')"></div>
+
+                    <div class="white-container" id="container-img-2" onmouseenter="PopIn('container-img-2')" onmouseleave="PopOut('container-img-2')">
+                        <img id="product-img-2" src="" alt="product-image-2" width="110" onclick="switchProductImage('2')">
+                    </div>
+
+                    <div class="white-container" id="container-img-3" onmouseenter="PopIn('container-img-3')" onmouseleave="PopOut('container-img-3')">
+                        <img id="product-img-3" src="" alt="product-image-3" width="110" onclick="switchProductImage('3')">
+                    </div>
+
+                    <div class="white-container" id="container-img-4" onmouseenter="PopIn('container-img-4')" onmouseleave="PopOut('container-img-4')">
+                        <img id="product-img-4" src="" alt="product-image-4" width="110" onclick="switchProductImage('4')">
+                    </div>
+
                 </div>
                 <img id="last-review-banner" src="../img/product/Last-review.png" alt="last review" width="120">
                 <div class="white-container" id="review">
@@ -177,12 +187,16 @@
                     </select>
                 </div>
 
-                <button id="add-to-cart-button" type="button" onmouseenter="PopIn('add-to-cart-button')" onmouseleave="PopOut('add-to-cart-button')" onclick="BigPop('add-to-cart-button')"> Add to <span> Cart </span> </button>
+                <button id="add-to-cart-button" type="button" onmouseenter="PopIn('add-to-cart-button')" onmouseleave="PopOut('add-to-cart-button')"> Add to <span> Cart </span> </button>
             </div> 
         </div>
     </div>
     
-    
+    <div id="popup" class="popup">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <img class="popup-content" id="popup-img">
+    </div>
+
     </body>
 
     <footer id="footer">

@@ -43,12 +43,39 @@ function loadItemRightContainer(item)
     document.getElementById("product-specs").innerText = item.specifications;
 }
 
+function updateAddToCartButton(itemName) {
+    const addToCartButton = document.getElementById("add-to-cart-button");
+    addToCartButton.setAttribute("onclick", `addItemToBasket('${itemName}', 'add-to-cart-button')`);
+}
+
+
 function loadItem(item) {
     loadItemLeftContainer(item);
     loadItemRightContainer(item);
+    updateAddToCartButton(item.name);
     
     document.getElementById("main-container").style.display = "flex";
 }
+
+
+// Fonction pour ouvrir la popup
+function openPopup() {
+    const popup = document.getElementById('popup');
+    const popupImg = document.getElementById('popup-img');
+    const img = document.getElementById('product-img-1');
+    popup.style.display = "block";
+    popupImg.src = img.src;
+}
+
+// Fonction pour fermer la popup
+function closePopup() {
+    document.getElementById('popup').style.display = "none";
+}
+
+// Ajoutez un écouteur d'événement pour l'image
+document.getElementById('product-img-1').addEventListener('click', openPopup);
+
+
 
 function init() {
     const queryString = window.location.search;

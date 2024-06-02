@@ -194,6 +194,10 @@
     left: 1140px;
     top: 110px;
     background-color: #FAC710;
+    background-image: linear-gradient(315deg, #f5ab24 0%, #FAC710 74%);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px;
+    cursor:default;
+    color:#252F3D;
     padding: 20px;
     width: 25%;
     border-radius: 40px;

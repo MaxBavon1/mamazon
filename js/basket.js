@@ -20,7 +20,7 @@ function proceedToCheckout(button) {
 
     checkoutTimeOut = setTimeout(() => {
         button.style.transform = "translate(0px, 0px)";
-    }, 5000);
+    }, 2000);
 }
 
 function deleteBasketItem(oldItemName) {

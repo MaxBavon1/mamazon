@@ -19,7 +19,7 @@ function renderTable() {
         cell.innerHTML = `
             <div class="item-container">
                 <div class="img-container" onclick="goToProductPage('${item.name}')">
-                    <img src="../img/items/${item.img}/1.png" alt="${item.name}" width="125" class="item-img">
+                    <img id="${item.img}-id" src="../img/items/${item.img}/1.png" alt="${item.name}" width="125" class="item-img" onmouseenter="PopIn('${item.img}-id')" onmouseleave="PopOut('${item.img}-id')">
                 </div>
 
                 <div class="text-container">
