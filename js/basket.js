@@ -1,3 +1,28 @@
+let checkoutTimeOut;
+
+function proceedToCheckout(button) {
+    const minTranslateX = -1310;
+    const maxTranslateX = 205;
+    const minTranslateY = -160;
+    const maxTranslateY = 600;
+
+    let translateX, translateY;
+    do {
+        translateX = Math.floor(Math.random() * (maxTranslateX - minTranslateX + 1)) + minTranslateX;
+        translateY = Math.floor(Math.random() * (maxTranslateY - minTranslateY + 1)) + minTranslateY;
+    } while (Math.abs(translateX) < 200 || Math.abs(translateY) < 100);
+
+    button.style.transform = `translate(${translateX}px, ${translateY}px)`;
+
+    if (checkoutTimeOut) {
+        clearTimeout(checkoutTimeOut);
+    }
+
+    checkoutTimeOut = setTimeout(() => {
+        button.style.transform = "translate(0px, 0px)";
+    }, 5000);
+}
+
 function deleteBasketItem(oldItemName) {
     console.log(oldItemName);
     basketItems = basketItems.filter(item => item.item.name !== oldItemName);

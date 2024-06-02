@@ -46,40 +46,56 @@
     </header>
 
     <body>  
-    <div id="grey-container">
-        <form id="menu-form">
-            <label class="menu-label" id="new-label">
-                <input type="radio" name="menu" id="new-button" value="new" checked>
-                <span>New</span>
-            </label>
-            <label class="menu-label" id="trending-label">
-                <input type="radio" name="menu" id="trending-button" value="trending">
-                <span>Trending</span>
-            </label>
-            <label class="menu-label" id="about-label">
-                <input type="radio" name="menu" id="about-button" value="about">
-                <span>About</span>
-            </label>
-        </form>
-        <div id="underline"></div>
-    </div>
+        <div id="grey-container">
+            <form id="menu-form">
+                <label class="menu-label" id="all-label">
+                    <input type="radio" name="menu" id="all-button" value="all" checked>
+                    <span> All </span>
+                </label>
+                <label class="menu-label" id="new-label">
+                    <input type="radio" name="menu" id="new-button" value="new">
+                    <span> New Releases </span>
+                </label>
+                <label class="menu-label" id="best-label">
+                    <input type="radio" name="menu" id="best-button" value="best">
+                    <span> Best Sellers </span>
+                </label>
+                <label class="menu-label" id="cheap-label">
+                    <input type="radio" name="menu" id="cheap-button" value="cheap">
+                    <span> Cheapest </span>
+                </label>
+                <label class="menu-label" id="expensive-label">
+                    <input type="radio" name="menu" id="expensive-button" value="expensive">
+                    <span> Most Expensive </span>
+                </label>
+                <label class="menu-label" id="contact-label">
+                    <input type="radio" name="menu" id="contact-button" value="contact">
+                    <span> Contact Us </span>
+                </label>
+                <label class="menu-label" id="about-label">
+                    <input type="radio" name="menu" id="about-button" value="about">
+                    <span>About</span>
+                </label>
+            </form>
+            <div id="underline"></div>
+        </div>
 
     <div id="main-container">
         <div class="container" id="left-container">
             <div id="product-image-1">
-                <img id="product-img-1" src="../img/items/F-16_fighter_jet/1.png" alt="product-image-1" width="128">
+                <img id="product-img-1" src="" alt="product-image-1" width="128">
             </div>
             <div id="product-review">
                 <div id="product-images">
-                    <div class="white-container"><img id="product-img-2" src="../img/items/F-16_fighter_jet/2.png" alt="product-image-2" width="110"></div>
-                    <div class="white-container"><img id="product-img-3" src="../img/items/F-16_fighter_jet/3.png" alt="product-image-3" width="110"></div>
-                    <div class="white-container"><img id="product-img-4" src="../img/items/F-16_fighter_jet/4.png" alt="product-image-4" width="110"></div>
+                    <div class="white-container"><img id="product-img-2" src="" alt="product-image-2" width="110" onclick="switchProductImage('2')"></div>
+                    <div class="white-container"><img id="product-img-3" src="" alt="product-image-3" width="110" onclick="switchProductImage('3')"></div>
+                    <div class="white-container"><img id="product-img-4" src="" alt="product-image-4" width="110" onclick="switchProductImage('4')"></div>
                 </div>
                 <img id="last-review-banner" src="../img/product/Last-review.png" alt="last review" width="120">
                 <div class="white-container" id="review">
                     <div id="stars-container-1"></div>
-                    <h3>Jean D.</h3>
-                    <p>Incredible Flight Experience!</p>
+                    <h3></h3>
+                    <p></p>
                 </div>
             </div>
         </div>
@@ -90,8 +106,8 @@
             <div  class="image-shop-container">
                 <img id="blue-orange-front" src="../img/product/blue-orange-front.png" alt="" width="350">
                 <div class="price" id="item-price">
-                    <span class="price-whole">$3,204</span>
-                    <span class="price-decimal">43</span>
+                    <span class="price-whole"></span>
+                    <span class="price-decimal"></span>
                 </div>
             </div>
 
@@ -100,10 +116,10 @@
                     <div id="name-container-left">
                         <img id="item-name-trans" src="../img/product/item-name-transition.png" alt=""height="70px">
                         <div id="name-container">
-                            <span id="item-name">The Elephant in the Room</span>
+                            <span id="item-name"></span>
                             <div id="name-review">
                                 <div id="stars-container-2"></div>
-                                <span id="nb-rating">3,243</span>
+                                <span id="nb-rating"></span>
                             </div>
                         </div>
                     </div>
@@ -116,24 +132,13 @@
             <div class="white-container" id="mid-container">
                 <div id="product-description">
                     <h3 class="description-title"> Description </h3>
-                    <p class="description-text">
-                        Introducing the state-of-the-art Falcon X5 Fighter Jet. A marvel of modern aerospace engineering designed for superior performance in both air-to-air and air-to-ground combat scenarios.
-                    </p>
+                    <p class="description-text" id="product-desc"></p>
 
                     <h3 class="description-title"> Key Features </h3>
-                    <p class="description-text">
-                        - Speed and Agility: Capable of reaching speeds over Mach 2.5, the Falcon X5 offers unmatched agility with advanced thrust vectoring. <br>
-                        - Stealth Technology: Equipped with cutting-edge stealth features including radar-absorbent materials and an optimized airframe to evade detection. <br>
-                        - Advanced Avionics: Integrated with next-generation avionics systems for enhanced situational awareness, including a digital glass cockpit and AI-assisted targeting. <br>
-                    </p>
+                    <p class="description-text" id="product-features"></p>
                     
                     <h3 class="description-title"> Specifications </h3>
-                    <p class="description-text">
-                        - Length: 19.8 meters. <br>
-                        - Wingspan: 13.6 meters. <br>
-                        - Maximum Takeoff Weight: 25,000 kg. <br>
-                        - Engine: Dual turbofan engines with afterburners. <br>
-                    </p>
+                    <p class="description-text"  id="product-specs"></p>
                     <div class="white-gradient" id="white-grad-desc"></div>
                 </div>
                 <div id="blue-desc-footer"></div>
@@ -168,7 +173,7 @@
                         <option value="7">Quantity: 7</option>
                         <option value="8">Quantity: 8</option>
                         <option value="9">Quantity: 9</option>
-                        <option value="10+">Quantity: 10+</option>
+                        <option value="10">Quantity: 10</option>
                     </select>
                 </div>
 

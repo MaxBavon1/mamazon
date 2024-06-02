@@ -1,0 +1,59 @@
+#about-section {
+    padding: 40px;
+    background-color: #ffffff;
+    color: #37475a;
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 3%;
+    border-radius: 25px;
+    box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 35px 0px;
+    position: relative;
+    z-index: 2;
+}
+
+.background-text {
+    position: relative;
+    top: 15%;
+    text-align: center;
+    font-size: 200px;
+    color: rgba(200, 200, 200, 0.5);
+    font-weight: bold;
+    z-index: 1;
+    pointer-events: none;
+}
+
+
+#about-section h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #1ca4e3;
+}
+
+#about-section p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+#about-section h2 {
+    font-size: 2em;
+    margin-top: 30px;
+    color: #1ca4e3;
+}
+
+#about-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+#about-section ul li {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+#about-section h7 {
+    margin-left:610px;
+    color: rgba(61, 75, 84, 0.5);
+}

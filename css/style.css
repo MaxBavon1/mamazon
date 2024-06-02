@@ -235,22 +235,27 @@ input[type="radio"] + span {
 
 
 
+#all-label {
+  position: relative;
+}
 #new-label {
-  position: relative;
-  right: 130px;
+    position: relative;
 }
-
+#best-label {
+    position: relative;
+}
+#cheap-label {
+    position: relative;
+}
+#expensive-label {
+    position: relative;
+}
+#contact-label {
+    position: relative;
+}
 #about-label {
   position: relative;
-  left: 120px;
 }
-
-#about-label {
-  position: relative;
-  left: 120px;
-}
-
-
 
 #footer {
   background-color: #f1f1f1;

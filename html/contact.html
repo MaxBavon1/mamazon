@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Mamazon</title>
+    <title>About Us - Mamazon</title>
     <meta charset="utf-8"/>
     <link rel="stylesheet" href="../css/style.css"/>
-    <link rel="stylesheet" href="../css/items.css"/>
+    <link rel="stylesheet" href="../css/contact.css"/>
     <link rel="stylesheet" href="../css/scrollbar.css"/>
     <link rel="icon" href="../img/header/mamazon_icon.png" type="image/x-icon">
-    <script src="../js/script.js" defer></script>
-    <script src="../js/items.js" defer></script>
+    <script src="../js/script.js"></script>
 </head>
 <body>
     <header class="blue-container">
@@ -19,8 +18,8 @@
         </div>
 
         <div class="zone">
-            <input type="text" id="main-search-bar" placeholder="Search Mamazon">
-            <button type="button" id="search-button" onmouseenter="PopIn('search-button')" onmouseleave="PopOut('search-button')">
+            <input type="text" id="main-search-bar"  placeholder="Search Mamazon">
+            <button type="button" id="search-button" onclick="search()" onmouseenter="PopIn('search-button')" onmouseleave="PopOut('search-button')">
                 <img src="../img/header/loupe.png" alt="Search" width="35" class="overlay-img"/>
             </button>
         </div>
@@ -79,22 +78,10 @@
         </form>
         <div id="underline"></div>
     </div>
-
     <main>
-        <div id="table-container">
-            <table id="items-table">
-                <tbody>
-                    <!-- items from js -->
-                </tbody>
-            </table>
-            <div class="pagination_container">
-                <div id="pagination">
-                    <button id="prev-page">Previous</button>
-                    <span id="page-numbers"></span>
-                    <button id="next-page">Next</button>
-                </div>            
-            </div>
-        </div>
+        <section id="about-section">
+            <p> BRUUUH </p>
+        </section>
     </main>
 
     <footer id="footer">

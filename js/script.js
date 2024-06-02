@@ -1,4 +1,5 @@
 function setupEventListeners() {
+    document.getElementById("main-search-bar").addEventListener("input", handleSearch);
     document.getElementById("search-button").addEventListener("click", handleSearch);
     document.getElementById("home-button").addEventListener("click", goToHomePage);
     document.getElementById("basket-button").addEventListener("click", goToBasket);
@@ -8,12 +9,24 @@ function setupEventListeners() {
 }
 
 function handleSearch() {
-    const query = document.getElementById("main-search-bar").value.trim();
-    if (query) {
-        console.log("Search query:", query);
-    } else {
-        console.log("Please enter a search query");
-    }
+    const query = document.getElementById("main-search-bar").value.trim().toLowerCase();
+
+    items = itemList.filter(item => 
+        item.name.toLowerCase().includes(query)
+    ).sort((a, b) => {
+        const aStartsWith = a.name.toLowerCase().startsWith(query);
+        const bStartsWith = b.name.toLowerCase().startsWith(query);
+    
+        if (aStartsWith && !bStartsWith) {
+            return -1;
+        }
+        if (!aStartsWith && bStartsWith) {
+            return 1;
+        }
+        return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+    });
+
+    document.dispatchEvent(new Event('searchUpdated'));
 }
 
 function goToHomePage() {
@@ -22,6 +35,10 @@ function goToHomePage() {
 
 function goToAboutPage() {
     window.location.href = "/html/about.html";
+}
+
+function goToContactPage() {
+    window.location.href = "/html/contact.html";
 }
 
 function goToBasket() {
@@ -36,21 +53,13 @@ function handleMenuChange(event, index) {
     const selectedValue = event.target.value;
     const selectedLabel = event.target.nextElementSibling;
 
-    // Remove active class from all labels
     document.querySelectorAll('.menu-label span').forEach(span => {
         span.classList.remove('active');
     });
-
-    // Add active class to the selected label
     selectedLabel.classList.add('active');
-
-    // Adjust the underline position based on the selected value
     updateUnderlinePosition(index);
-
-    // Store the active menu in localStorage
     localStorage.setItem('activeMenu', selectedValue);
 
-    // Handle redirection
     handleRedirection(selectedValue);
 }
 
@@ -63,12 +72,51 @@ function updateUnderlinePosition(index) {
 }
 
 function handleRedirection(selectedValue) {
-    if (selectedValue === 'about') {
-        goToAboutPage();
-    } else if (selectedValue === 'new') {
-        goToHomePage();
+    switch (selectedValue) {
+        case 'all':
+            if (!window.location.href.includes('home')) {
+                goToHomePage();
+            }
+            itemsFilterReset();
+            break;
+        case 'new':
+            if (!window.location.href.includes('home')) {
+                goToHomePage();
+            }
+            itemsFilterByDate();
+            break;
+        case 'best':
+            if (!window.location.href.includes('home')) {
+                goToHomePage();
+            }
+            itemsFilterByBest();
+            break;
+        case 'cheap':
+            if (!window.location.href.includes('home')) {
+                goToHomePage();
+            }
+            itemsFilterByCheap();
+            break;
+        case 'expensive':
+            if (!window.location.href.includes('home')) {
+                goToHomePage();
+            }
+            itemsFilterByExpensive();
+            break;
+        case 'contact':
+            if (!window.location.href.includes('contact')) {
+                goToContactPage();
+            }
+            break;
+        case 'about':
+            if (!window.location.href.includes('about')) {
+                goToHomePage();
+            }
+            goToAboutPage();
+            break;
+        default:
+            break;
     }
-    // Add more conditions as needed for other menu items
 }
 
 function initializeMenu() {
@@ -192,6 +240,29 @@ function setupMouseAnimations() {
     });
 }
 
+function renderStars(rating)
+{
+    const fullStars = Math.floor(rating);
+    const halfStars = rating % 1 >= 0.5 ? 1 : 0;
+    const emptyStars = 5 - fullStars - halfStars;
+    
+    let starsHtml = '';
+
+    for (let i = 0; i < fullStars; i++) {
+        starsHtml += '<div class="star full"></div>';
+    }
+
+    if (halfStars) {
+        starsHtml += '<div class="star half"></div>';
+    }
+
+    for (let i = 0; i < emptyStars; i++) {
+        starsHtml += '<div class="star empty"></div>';
+    }
+
+    return starsHtml;
+}
+
 // Basket-related functions
 
 let basketItems = [];
@@ -261,7 +332,59 @@ function BigPop(element) {
     }, 100);
 }
 
-function onLoad() {
+// Items functions
+function itemsFilterReset() {
+    items = Array.from(itemList);
+    document.dispatchEvent(new Event('searchUpdated'));
+}
+function itemsFilterByBest() {
+    items = itemList.slice().sort((a, b) => b.rating - a.rating);
+    document.dispatchEvent(new Event('searchUpdated'));
+}
+function itemsFilterByCheap() {
+    items = itemList.slice().sort((a, b) => {
+        const aPrice = parseFloat(a.priceWhole.replace('$', '').replace(/,/g, '')) + parseFloat(a.priceDecimal) / 100;
+        const bPrice = parseFloat(b.priceWhole.replace('$', '').replace(/,/g, '')) + parseFloat(b.priceDecimal) / 100;
+        return aPrice - bPrice;
+    });
+    document.dispatchEvent(new Event('searchUpdated'));
+}
+function itemsFilterByExpensive() {
+    items = itemList.slice().sort((a, b) => {
+        const aPrice = parseFloat(a.priceWhole.replace('$', '').replace(/,/g, '')) + parseFloat(a.priceDecimal) / 100;
+        const bPrice = parseFloat(b.priceWhole.replace('$', '').replace(/,/g, '')) + parseFloat(b.priceDecimal) / 100;
+        console.log("A item : " + a.name + " price : " + aPrice + " B item : " + b.name + " price : " + bPrice);
+        return bPrice - aPrice;
+    });
+    document.dispatchEvent(new Event('searchUpdated'));
+}
+function itemsFilterByDate() {
+    items = itemList.slice().sort((a, b) => new Date(a.date) - new Date(b.date));
+    document.dispatchEvent(new Event('searchUpdated'));
+}
+
+
+async function fetchItems() {
+    try {
+        const response = await fetch('../data/json/items.json');
+        const items = await response.json();
+        return items;
+    } catch (error) {
+        console.error('Error fetching items:', error);
+        return [];
+    }
+}
+
+function findItem(name) {
+    return itemList.find(item => item.name === name);
+}
+
+async function onLoad() {
+    itemList = await fetchItems();
+    items = Array.from(itemList);
+
+    document.dispatchEvent(new Event('itemsLoaded'));
+
     setupEventListeners();
     initializeMenu();
     loadBasketItems();
@@ -273,4 +396,6 @@ function init() {
     document.addEventListener("DOMContentLoaded", onLoad);
 }
 
+let itemList = [];
+let items = [];
 init();

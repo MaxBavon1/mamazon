@@ -189,13 +189,17 @@
     top: -10px;
 }
 
-#price-container button {
+#checkout-button {
+    position: absolute;
+    left: 1140px;
+    top: 110px;
     background-color: #FAC710;
     padding: 20px;
-    width: 100%;
+    width: 25%;
     border-radius: 40px;
     font-weight: bold;
     font-size: 20px;
+    transition: transform 0.3s ease-out;
 }
 
 #recom-container {

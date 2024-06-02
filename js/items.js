@@ -1,23 +1,3 @@
-async function fetchItems() {
-    try {
-        const response = await fetch('../data/json/items.json');
-        const items = await response.json();
-        return items;
-    } catch (error) {
-        console.error('Error fetching items:', error);
-        return [];
-    }
-}
-
-let currentPage = 1;
-const itemsPerPage = 25;
-let items = [];
-
-async function initialize() {
-    items = await fetchItems();
-    renderTable();
-}
-
 function renderTable() {
     const tableBody = document.querySelector('#items-table tbody');
     tableBody.innerHTML = '';
@@ -67,9 +47,6 @@ function renderTable() {
         `;
         row.appendChild(cell);
     });
-
-    renderPagination();
-    updateBasketCount();
 }
 
 function renderPagination() {
@@ -122,42 +99,14 @@ function renderPagination() {
     document.getElementById('next-page').disabled = currentPage === totalPages;
 }
 
-document.getElementById('next-page').addEventListener('click', () => {
-    if ((currentPage * itemsPerPage) < items.length) {
-        currentPage++;
-        renderTable();
-        window.scrollTo(0, 0); // Téléporter en haut de la page
-    }
-});
-
-document.getElementById('prev-page').addEventListener('click', () => {
-    if (currentPage > 1) {
-        currentPage--;
-        renderTable();
-        window.scrollTo(0, 0); // Téléporter en haut de la page
-    }
-});
-
-function renderStars(rating) {
-    const fullStars = Math.floor(rating);
-    const halfStars = rating % 1 >= 0.5 ? 1 : 0;
-    const emptyStars = 5 - fullStars - halfStars;
-    
-    let starsHtml = '';
-
-    for (let i = 0; i < fullStars; i++) {
-        starsHtml += '<div class="star full"></div>';
-    }
-
-    if (halfStars) {
-        starsHtml += '<div class="star half"></div>';
-    }
-
-    for (let i = 0; i < emptyStars; i++) {
-        starsHtml += '<div class="star empty"></div>';
-    }
-
-    return starsHtml;
+function renderItems() {
+    renderTable();
+    renderPagination();
+    updateBasketCount();
 }
 
-initialize();
+let currentPage = 1;
+const itemsPerPage = 25;
+
+document.addEventListener('itemsLoaded', renderItems);
+document.addEventListener('searchUpdated', renderItems);
