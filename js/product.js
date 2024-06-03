@@ -41,19 +41,19 @@ function loadItemRightContainer(item)
     document.getElementById("product-desc").innerText = item.desc;
     document.getElementById("product-features").innerText = item.features;
     document.getElementById("product-specs").innerText = item.specifications;
-}
 
-function updateAddToCartButton(itemName) {
     const addToCartButton = document.getElementById("add-to-cart-button");
-    addToCartButton.setAttribute("onclick", `addItemToBasket('${itemName}', 'add-to-cart-button')`);
+    addToCartButton.onclick = function () {
+        const quantity = document.getElementById("quantity").value;
+        addItemToBasket(item.name, 'add-to-cart-button', parseInt(quantity));
+    };
 }
 
 
 function loadItem(item) {
     loadItemLeftContainer(item);
     loadItemRightContainer(item);
-    updateAddToCartButton(item.name);
-    
+
     document.getElementById("main-container").style.display = "flex";
 }
 

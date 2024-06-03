@@ -282,7 +282,7 @@ function getBasketTotalItems() {
     return basketItems.reduce((total, item) => total + item.quantity, 0);
 }
 
-function addItemToBasket(newItemName, uniqueId) {
+function addItemToBasket(newItemName, uniqueId, quantity=1) {
     BigPop(uniqueId);
 
     const newItem = items.find(item => item.name === newItemName);
@@ -293,9 +293,11 @@ function addItemToBasket(newItemName, uniqueId) {
 
     const existingItemIndex = basketItems.findIndex(item => item.item.name === newItemName);
     if (existingItemIndex !== -1) {
-        basketItems[existingItemIndex].quantity++;
+        if (basketItems[existingItemIndex].quantity + quantity <= 10) {
+            basketItems[existingItemIndex].quantity += quantity;
+        }
     } else {
-        basketItems.push({ item: newItem, quantity: 1 });
+        basketItems.push({ item: newItem, quantity: quantity });
     }
 
     updateBasketCount();
@@ -303,7 +305,17 @@ function addItemToBasket(newItemName, uniqueId) {
 }
 
 function updateBasketCount() {
-    document.getElementById("basket-count").textContent = getBasketTotalItems();
+    const basketCount = getBasketTotalItems();
+    const basketCountElement = document.getElementById("basket-count"); 
+
+    if (basketCount > 0) {
+        basketCountElement.style.backgroundColor = "#ff0000";
+    } else {
+        basketCountElement.style.backgroundColor = "default";
+    }
+    basketCountElement.textContent = getBasketTotalItems();
+
+    PopIn("basket-count");
 }
 
 // Animation helper functions

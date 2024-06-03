@@ -47,6 +47,8 @@ function renderBasketItems() {
 
     basketItems.forEach(basketItem => {
         const item = basketItem.item;
+        const wholePrice = calculateItemPrice(item, basketItem.quantity).wholePrice;
+        const decimalPrice = calculateItemPrice(item, basketItem.quantity).decimalPrice;
 
         const itemDiv = document.createElement("div");
         itemDiv.classList.add("basket-item");
@@ -87,8 +89,8 @@ function renderBasketItems() {
                 </div>
             </div>
             <div class="basket-item-price">
-                <h3> ${item.priceWhole} </h3>
-                <p> ${item.priceDecimal} </p>
+                <h3> ${wholePrice} </h3>
+                <p> ${decimalPrice} </p>
             </div>`;
 
         itemsDiv.appendChild(itemDiv); // Append the itemDiv before accessing the select element
@@ -105,6 +107,34 @@ function renderBasketItems() {
         itemDiv.querySelector(".basket-item-image").addEventListener("click", () => goToProductPage(item.name));
         itemDiv.querySelector(".item-name").addEventListener("click", () => goToProductPage(item.name));
     });
+}
+
+function calculateItemPrice(item, quantity)
+{
+    console.log(item.quantity);
+    let totalWholePrice = 0;
+    let totalDecimalPrice = 0;
+
+    const wholePrice = parseInt(item.priceWhole.replace(/[\$,]/g, ''), 10);
+    const decimalPrice = parseInt(item.priceDecimal, 10);
+
+    totalWholePrice += wholePrice * quantity;
+    totalDecimalPrice += decimalPrice * quantity;
+
+    // Handle decimal overflow (e.g., 100 cents = 1 dollar)
+    const additionalWholePrice = Math.floor(totalDecimalPrice / 100);
+    totalWholePrice += additionalWholePrice;
+    totalDecimalPrice = totalDecimalPrice % 100;
+
+    // Format the whole price with commas
+    const formattedWholePrice = totalWholePrice.toLocaleString("en-US");
+
+    console.log(formattedWholePrice);
+
+    return {
+        wholePrice: `$${formattedWholePrice}`,
+        decimalPrice: totalDecimalPrice.toString().padStart(2, '0')
+    };  
 }
 
 function calculateTotalPrice(basketItems) {
