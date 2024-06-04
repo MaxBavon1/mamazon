@@ -1,7 +1,4 @@
 function setupEventListeners() {
-    document.getElementById("main-search-bar").addEventListener("input", handleSearch);
-    document.getElementById("home-button").addEventListener("click", goToHomePage);
-    document.getElementById("basket-button").addEventListener("click", goToBasket);
     document.querySelectorAll('#menu-form input[type="radio"]').forEach((input, index) => {
         input.addEventListener('change', (event) => handleMenuChange(event, index));
     });
@@ -318,14 +315,22 @@ function addItemToBasket(newItemName, uniqueId, quantity=1) {
 
 function updateBasketCount() {
     const basketCount = getBasketTotalItems();
+
+    const notif = document.getElementById("notif");
     const basketCountElement = document.getElementById("basket-count"); 
 
     if (basketCount > 0) {
-        basketCountElement.style.backgroundColor = "#ff0000";
+        notif.style.backgroundColor = "#ff4e4e";
     } else {
-        basketCountElement.style.backgroundColor = "default";
+        notif.style.backgroundColor = "rgba(255,255,255,0)";
     }
-    basketCountElement.textContent = getBasketTotalItems();
+    
+    if (basketCount <= 9) {
+        basketCountElement.textContent = getBasketTotalItems();
+    }
+    else {
+        basketCountElement.textContent = "9+";
+    }
 
     PopIn("basket-count");
 }

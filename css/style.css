@@ -56,6 +56,7 @@ body {
     outline: none;
     transition: box-shadow 0.2s ease;
     font-weight: bolder;
+    color: #37475a;
 }
   
 #main-search-bar::placeholder {
@@ -105,9 +106,9 @@ button {
 }
 
 #search-cross {
-    position: relative;
-    top: -6px;
-    left: -35px;
+    position: absolute;
+    top:8px;
+    left: -30px;
     opacity: 0.5;
     transition: transform 0.4s ease-in-out;
     display: none;
@@ -226,6 +227,11 @@ input[type="radio"] + span {
   font-weight: normal;
 }
 
+input[type="radio"] + span:not(.active):hover {
+  font-weight: bolder;
+  color: #1ca4e3;
+}
+
 #underline {
   position: absolute;
   bottom: 0;
@@ -238,30 +244,6 @@ input[type="radio"] + span {
 .menu-label span.active {
   color: #1ca4e3;
   font-weight: bold;
-}
-
-
-
-#all-label {
-  position: relative;
-}
-#new-label {
-    position: relative;
-}
-#best-label {
-    position: relative;
-}
-#cheap-label {
-    position: relative;
-}
-#expensive-label {
-    position: relative;
-}
-#contact-label {
-    position: relative;
-}
-#about-label {
-  position: relative;
 }
 
 #footer {
@@ -309,21 +291,30 @@ input[type="radio"] + span {
 
 #blue-copyright {
   width: 100%;
-  background-color: #70C4DA;
+  background-image: url(../img/product/blue_square.png);
+  background-size: cover;
   font-weight: lighter;
   color: white;
   padding: 10px 0;
   bottom: 0px;
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 105px 10px 105px;
 }
 
-#basket-count {
+#notif {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   color: white;
   font-weight: bold;
   position: absolute;
+  top:0px;
+  right: -17px;
+  width: 24px;
+  height: 24px;
   border-radius: 50%;
-  padding: 0.2em;
-  min-width: 1.5em;
-  height: 1.5em;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+#basket-count {
+  position: relative;
+  top: 2px
 }

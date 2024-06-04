@@ -13,7 +13,7 @@
         "specifications": "- Length: 19.8 meters\n- Wingspan: 13.6 meters\n- Maximum Takeoff Weight: 25,000 kg\n- Engine: Dual turbofan engines with afterburners.",
         "date": "2023-06-09"
     },
-    {
+{
         "name": "A thumb",
         "priceWhole": "$4",
         "priceDecimal": "35",
@@ -350,17 +350,17 @@
         "date": "2023-07-14"
     },
     {
-        "name": "An empty can of spinach",
-        "priceWhole": "$8",
-        "priceDecimal": "10",
-        "img": "empty_spinach_can",
-        "rating": 4.5,
-        "reviews": 82,
-        "lastReview": "Great for crafts.",
-        "desc": "An empty can that once held spinach.",
-        "lastReviewClient": "Daniel Carter",
-        "features": "- Reusable: Can be used for crafts or storage.\n- Lightweight: Easy to handle.",
-        "specifications": "- Material: Tin\n- Capacity: 400 grams\n- Condition: Empty.",
-        "date": "2023-07-14"
+        "name": "The whole alphabet",
+        "priceWhole": "$25",
+        "priceDecimal": "99",
+        "img": "alphabet",
+        "rating": 4,
+        "reviews": 4785,
+        "lastReview": "Often useful.",
+        "desc": "This product is a set of letters or symbols used to represent the sounds of a spoken language. In the English language, the alphabet consists of 26 letters, from A to Z. Each letter has its own unique sound and can be combined with other letters to form words. The alphabet is fundamental to reading, writing, and communication in many languages.",
+        "lastReviewClient": "Alain Rey",
+        "features": "- Reusable: Can be used several times.\n- Lightweight: Pretty light.",
+        "specifications": "- Material: Tin\n- Capacity: 26 grams\n- Condition: Empty.",
+        "date": "1200-02-14"
     }
 ]

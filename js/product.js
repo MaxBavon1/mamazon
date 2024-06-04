@@ -41,6 +41,7 @@ function loadItemRightContainer(item)
     document.getElementById("product-desc").innerText = item.desc;
     document.getElementById("product-features").innerText = item.features;
     document.getElementById("product-specs").innerText = item.specifications;
+    document.getElementById("nb-rating").innerText = item.reviews;
 
     const addToCartButton = document.getElementById("add-to-cart-button");
     addToCartButton.onclick = function () {
@@ -58,7 +59,6 @@ function loadItem(item) {
 }
 
 
-// Fonction pour ouvrir la popup
 function openPopup() {
     const popup = document.getElementById('popup');
     const popupImg = document.getElementById('popup-img');
@@ -67,12 +67,10 @@ function openPopup() {
     popupImg.src = img.src;
 }
 
-// Fonction pour fermer la popup
 function closePopup() {
     document.getElementById('popup').style.display = "none";
 }
 
-// Ajoutez un écouteur d'événement pour l'image
 document.getElementById('product-img-1').addEventListener('click', openPopup);
 
 

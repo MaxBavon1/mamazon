@@ -118,7 +118,7 @@
 
 #last-review-banner {
     position: absolute;
-    top: 48.3%;
+    top: 48.6%;
     left: 8%;
     z-index: 1;
 }
@@ -380,6 +380,9 @@
 
 #nb-rating {
     position: relative;
+    font-weight: light;
+    font-size: small;
+    color: white;
     bottom: 1px;
 }
 

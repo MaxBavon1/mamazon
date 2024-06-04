@@ -203,7 +203,7 @@ td {
     position: relative;
     width: 110%;
     border-radius: 25px;
-
+    transform: translateY(-1px);
 }
 
 p {
