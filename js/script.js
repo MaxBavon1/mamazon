@@ -1,6 +1,5 @@
 function setupEventListeners() {
     document.getElementById("main-search-bar").addEventListener("input", handleSearch);
-    document.getElementById("search-button").addEventListener("click", handleSearch);
     document.getElementById("home-button").addEventListener("click", goToHomePage);
     document.getElementById("basket-button").addEventListener("click", goToBasket);
     document.querySelectorAll('#menu-form input[type="radio"]').forEach((input, index) => {
@@ -8,8 +7,19 @@ function setupEventListeners() {
     });
 }
 
+function clearSearch() {
+    document.getElementById("main-search-bar").value = '';
+    itemsFilterReset();
+}
+
 function handleSearch() {
     const query = document.getElementById("main-search-bar").value.trim().toLowerCase();
+
+    if (query.length > 0) {
+        document.getElementById("search-cross").style.display = "block";
+    } else {
+        document.getElementById("search-cross").style.display = "none";
+    }
 
     items = itemList.filter(item => 
         item.name.toLowerCase().includes(query)
@@ -74,12 +84,14 @@ function updateUnderlinePosition(index) {
 function handleRedirection(selectedValue) {
     switch (selectedValue) {
         case 'all':
+            console.log("all");
             if (!window.location.href.includes('home')) {
                 goToHomePage();
             }
             itemsFilterReset();
             break;
         case 'new':
+            console.log("new");
             if (!window.location.href.includes('home')) {
                 goToHomePage();
             }

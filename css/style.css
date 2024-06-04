@@ -104,6 +104,22 @@ button {
   left: 0;
 }
 
+#search-cross {
+    position: relative;
+    top: -6px;
+    left: -35px;
+    opacity: 0.5;
+    transition: transform 0.4s ease-in-out;
+    display: none;
+}
+
+#search-cross:hover {
+    transform: rotateZ(180deg);
+    background-color: whitesmoke;
+    border-radius: 50%;
+    opacity: 0.7;
+}
+
 .hidden {
   display: none;
 }
@@ -209,8 +225,6 @@ input[type="radio"] + span {
   font-size: 1.1em;
   font-weight: normal;
 }
-
-
 
 #underline {
   position: absolute;
