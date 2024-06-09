@@ -8,11 +8,12 @@
     <link rel="stylesheet" href="../css/scrollbar.css"/>
     <link rel="icon" href="../img/header/mamazon_icon.png" type="image/x-icon">
     <script src="../js/script.js"></script>
+    <script src="../js/product.js" defer></script>
 </head>
 <body>
     <header class="blue-container">
         <div class="zone">
-            <button id="home-button" onclick="goToHomePage()" onmouseenter="PopIn('home-button')" onmouseleave="PopOut('home-button')">
+            <button id="home-button" onmouseenter="PopIn('home-button')" onmouseleave="PopOut('home-button')">
                 <img src="../img/header/logo_white.png" alt="Home page" height="50"/>
             </button>
         </div>
@@ -48,7 +49,7 @@
     <div id="grey-container">
         <form id="menu-form">
             <label class="menu-label" id="all-label">
-                <input type="radio" name="menu" id="all-button" value="all" checked>
+                <input type="radio" name="menu" id="all-button" value="all">
                 <span> All </span>
             </label>
             <label class="menu-label" id="new-label">
@@ -79,16 +80,16 @@
         <div id="underline"></div>
     </div>
     <main>
-        <div class="background-text">Buy...</div>
+        <div class="background-text">Buy literally...</div>
         <section id="about-section">
             <h1>About Mamazon</h1>
             <p>Welcome to Mamazon, the ultimate parody of Amazon where you can literally buy everything! Our slogan is "Buy everything" because, well, you really can. From the most mundane items to the utterly bizarre, Mamazon has it all.</p>
             <p>The name Mamazon comes from the idea that when you need something, you ask your mom. Hence, Mama-zon. We believe that the spirit of Mamazon embodies the helpfulness and resourcefulness of moms everywhere.</p>
             <p>Please respect your mom, you only have one.</p>
-            <h2>Our Mission</h2>
+            <h3>Our Mission</h3>
             <p>At Mamazon, our mission is to provide a fun and whimsical shopping experience. We want you to explore the limits of what's possible to purchase and have a good laugh while doing it. Whether you're looking for an F-16 fighter jet, half a Big Mac, or even Jeff Bezos’ credit card, Mamazon is your one-stop-shop for everything imaginable.</p>
             <p>Actually, if you look hard enough, you should even be able to find the needle in the weasel's boot.</p>
-            <h2>Why Choose Mamazon?</h2>
+            <h3>Why Choose Mamazon?</h3>
             <ul>
                 <li>Unmatched variety of products</li>
                 <li>A sense of humor in every purchase</li>
@@ -96,18 +97,41 @@
                 <li>A nod to the amazing resourcefulness of moms</li>
                 <li>Mama is always right </li>
             </ul>
-            <h7>Mamazon - <em>Buy Everything</em></h7>
+
+            <br>
+            <br>
+            <h1>Who Are We?</h1>
+            <div id="who-are-we">
+                <img id='product-img-1' src="../img/mamazon_poster.png" alt="Mamazon Poster" onclick="openPopup()">
+                <img id='product-img-2' src="../img/mamazon_poster_2.png" alt="Mamazon Poster">
+                <div>
+                    <p>Meet the brains behind the madness. </p>
+                    <p> We are Alexandre DIDIER and Maxime ETIENNE, two computer science students at EFREI in L2. When we're not coding, we're coming up with crazy ideas for Mamazon.</p>
+                    <p>Who needs sanity when you have Mamazon?</p>
+                    <button class="animated-button" onclick="toggleBackgroundColor(); switchProductImage('2'); BigPop('product-img-1')">
+                        <span>Join the Dark Side</span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+            <h7>Mamazon - <em>Buy Literally Everything</em></h7>
         </section>
         <div class="background-text">... everything.</div>
     </main>
+
+    <div id="popup" class="popup">
+        <span class="close" onclick="closePopup()">&times;</span>
+        <img class="popup-content" id="popup-img">
+    </div>
+    
     <footer id="footer">
         <div class="footer-container">
             <div class="footer-section">
-                <h4><a href="about.html">About Us</a></h4>
+                <h4 id="about-footer">About Us</h4>
                 <p>Learn more about Mamazon and our mission.</p>
             </div>
             <div class="footer-section">
-                <h4><a href="contact.html">Contact us</a></h4>
+                <h4 id="contact-footer">Contact Us</h4>
                 <p>Email: support@mamazon.com</p>
                 <p>Phone: 1-800-555-5555</p>
             </div>
@@ -120,7 +144,7 @@
                 </p>
             </div>
         </div>
-        <h5 id="blue-copyright">Copyright ©2024 All rights reserved</h5>
+        <h5 id="blue-copyright">© 2024 Mamazon, All Rights Reserved</h5>
     </footer>
 </body>
 </html>

@@ -318,3 +318,8 @@ input[type="radio"] + span:not(.active):hover {
   position: relative;
   top: 2px
 }
+
+#about-footer:hover, #contact-footer:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

@@ -12,7 +12,7 @@
 <body>
     <header class="blue-container">
         <div class="zone">
-            <button id="home-button" onclick="goToHomePage()" onmouseenter="PopIn('home-button')" onmouseleave="PopOut('home-button')">
+            <button id="home-button" onmouseenter="PopIn('home-button')" onmouseleave="PopOut('home-button')">
                 <img src="../img/header/logo_white.png" alt="Home page" height="50"/>
             </button>
         </div>
@@ -48,7 +48,7 @@
     <div id="grey-container">
         <form id="menu-form">
             <label class="menu-label" id="all-label">
-                <input type="radio" name="menu" id="all-button" value="all" checked>
+                <input type="radio" name="menu" id="all-button" value="all">
                 <span> All </span>
             </label>
             <label class="menu-label" id="new-label">
@@ -113,11 +113,11 @@
     <footer id="footer">
         <div class="footer-container">
             <div class="footer-section">
-                <h4><a href="about.html">About Us</a></h4>
+                <h4 id="about-footer">About Us</h4>
                 <p>Learn more about Mamazon and our mission.</p>
             </div>
             <div class="footer-section">
-                <h4><a href="contact.html">Contact us</a></h4>
+                <h4 id="contact-footer">Contact Us</h4>
                 <p>Email: support@mamazon.com</p>
                 <p>Phone: 1-800-555-5555</p>
             </div>
@@ -130,7 +130,7 @@
                 </p>
             </div>
         </div>
-        <h5 id="blue-copyright">Copyright ©2024 All rights reserved</h5>
+        <h5 id="blue-copyright">© 2024 Mamazon, All Rights Reserved</h5>
     </footer>
 </body>
 </html>

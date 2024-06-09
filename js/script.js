@@ -1,8 +1,42 @@
 function setupEventListeners() {
+    const searchBar = document.getElementById("main-search-bar");
+    
+    searchBar.addEventListener("input", handleSearch);
+    searchBar.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            handleSearchOnEnter();
+            searchBar.blur();
+        }
+    });
+
+    document.getElementById("home-button").addEventListener("click", () => {
+        selectRadio('all');
+    });
+    document.getElementById("about-footer").addEventListener("click", () => {
+        selectRadio('about');
+    });
+    document.getElementById("contact-footer").addEventListener("click", () => {
+        selectRadio('contact');
+    });
+    document.getElementById("basket-button").addEventListener("click", goToBasket);
     document.querySelectorAll('#menu-form input[type="radio"]').forEach((input, index) => {
         input.addEventListener('change', (event) => handleMenuChange(event, index));
     });
 }
+
+function handleSearchOnEnter() {
+    const query = document.getElementById("main-search-bar").value.trim().toLowerCase();
+    if (query.length > 0) {
+    if (!window.location.href.includes('home.html')) {
+        selectRadio('all');
+        window.location.href = `/html/home.html?search=${encodeURIComponent(query)}`;
+    } else {
+    handleSearch();
+    }
+    }
+    }
+
 
 function clearSearch() {
     document.getElementById("main-search-bar").value = '';
@@ -36,6 +70,15 @@ function handleSearch() {
     document.dispatchEvent(new Event('searchUpdated'));
 }
 
+function selectRadio(choice) {
+    const Radio = document.querySelector(`#menu-form input[value=${choice}]`);
+    if (Radio) {
+        Radio.checked = true;
+        Radio.dispatchEvent(new Event('change'));
+    }
+}
+
+
 function goToHomePage() {
     window.location.href = "/html/home.html";
 }
@@ -63,6 +106,7 @@ function handleMenuChange(event, index) {
     document.querySelectorAll('.menu-label span').forEach(span => {
         span.classList.remove('active');
     });
+    
     selectedLabel.classList.add('active');
     updateUnderlinePosition(index);
     localStorage.setItem('activeMenu', selectedValue);
@@ -252,8 +296,7 @@ function setupMouseAnimations() {
     });
 }
 
-function renderStars(rating)
-{
+function renderStars(rating) {
     const fullStars = Math.floor(rating);
     const halfStars = rating % 1 >= 0.5 ? 1 : 0;
     const emptyStars = 5 - fullStars - halfStars;
@@ -421,6 +464,13 @@ async function onLoad() {
     loadBasketItems();
     updateBasketCount();
     setupMouseAnimations();
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const searchQuery = urlParams.get('search');
+    if (searchQuery) {
+        document.getElementById("main-search-bar").value = searchQuery;
+        handleSearch();
+}
 }
 
 function init() {

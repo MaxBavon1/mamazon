@@ -71,9 +71,6 @@ function closePopup() {
     document.getElementById('popup').style.display = "none";
 }
 
-document.getElementById('product-img-1').addEventListener('click', openPopup);
-
-
 
 function init() {
     const queryString = window.location.search;
@@ -86,5 +83,13 @@ function init() {
         loadItem(item);
     }
 }
+
+function toggleBackgroundColor() {
+    const bodyElement = document.querySelector('body');
+    if (bodyElement) {
+        bodyElement.classList.toggle('inverted-background');
+    }
+}
+
 
 document.addEventListener("itemsLoaded", init);
