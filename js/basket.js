@@ -24,7 +24,6 @@ function proceedToCheckout(button) {
 }
 
 function deleteBasketItem(oldItemName) {
-    console.log(oldItemName);
     basketItems = basketItems.filter(item => item.item.name !== oldItemName);
     
     updateBasketPage();
@@ -43,7 +42,6 @@ function updateItemQuantity(itemName, newQuantity) {
 function renderBasketItems() {
     const itemsDiv = document.getElementById("basket-items");
     itemsDiv.innerHTML = '';
-    console.log(basketItems);
 
     basketItems.forEach(basketItem => {
         const item = basketItem.item;
@@ -111,7 +109,6 @@ function renderBasketItems() {
 
 function calculateItemPrice(item, quantity)
 {
-    console.log(item.quantity);
     let totalWholePrice = 0;
     let totalDecimalPrice = 0;
 
@@ -129,7 +126,6 @@ function calculateItemPrice(item, quantity)
     // Format the whole price with commas
     const formattedWholePrice = totalWholePrice.toLocaleString("en-US");
 
-    console.log(formattedWholePrice);
 
     return {
         wholePrice: `$${formattedWholePrice}`,

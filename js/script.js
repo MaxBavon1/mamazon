@@ -125,14 +125,12 @@ function updateUnderlinePosition(index) {
 function handleRedirection(selectedValue) {
     switch (selectedValue) {
         case 'all':
-            console.log("all");
             if (!window.location.href.includes('home')) {
                 goToHomePage();
             }
             itemsFilterReset();
             break;
         case 'new':
-            console.log("new");
             if (!window.location.href.includes('home')) {
                 goToHomePage();
             }
@@ -440,13 +438,37 @@ function itemsFilterByDate() {
 
 async function fetchItems() {
     try {
-        const response = await fetch('../data/json/items.json');
-        const items = await response.json();
-        return items;
+        const [response1, response2] = await Promise.all([
+            fetch('../data/json/items.json'),
+            fetch('../data/json/items_desc.json')
+        ]);
+
+        const [items1, items2] = await Promise.all([
+            response1.json(),
+            response2.json()
+        ]);
+
+        const mergedItems = mergeItems(items1, items2);
+        return mergedItems;
     } catch (error) {
         console.error('Error fetching items:', error);
         return [];
     }
+}
+
+function mergeItems(items1, items2) {
+    const itemMap = new Map();
+
+    items1.forEach(item => itemMap.set(item.name, item));
+    items2.forEach(item => {
+        if (itemMap.has(item.name)) {
+            itemMap.set(item.name, { ...itemMap.get(item.name), ...item });
+        } else {
+            itemMap.set(item.name, item);
+        }
+    });
+
+    return Array.from(itemMap.values());
 }
 
 function findItem(name) {

@@ -41,6 +41,8 @@ function loadItemRightContainer(item)
     document.getElementById("product-desc").innerText = item.desc;
     document.getElementById("product-features").innerText = item.features;
     document.getElementById("product-specs").innerText = item.specifications;
+    document.getElementById("product-anecdote").innerText = item.customerAnecdotes;
+    boldUntilColon();
     document.getElementById("nb-rating").innerText = item.reviews;
 
     const addToCartButton = document.getElementById("add-to-cart-button");
@@ -71,17 +73,22 @@ function closePopup() {
     document.getElementById('popup').style.display = "none";
 }
 
+function boldUntilColon() {
+    const boldables = ['product-features', 'product-specs'];
+    boldables.forEach(boldable => {
+        const container = document.getElementById(boldable);
+        const lines = container.innerHTML.split('<br>');
 
-function init() {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const name = urlParams.get('name');
+        const modifiedLines = lines.map(line => {
+            const index = line.indexOf(':');
+            if (index !== -1) {
+                return `<strong>${line.substring(0, index + 1)}</strong>${line.substring(index + 1)}`;
+            }
+            return line;
+        });
 
-    let item = findItem(name);
-
-    if (item) {
-        loadItem(item);
-    }
+        container.innerHTML = modifiedLines.join('<br>');
+    });
 }
 
 function toggleBackgroundColor() {
@@ -91,5 +98,18 @@ function toggleBackgroundColor() {
     }
 }
 
+
+
+function init() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const name = urlParams.get('name');
+
+    let item = findItem(name);
+    console.log(item);
+    if (item) {
+        loadItem(item);
+    }
+}
 
 document.addEventListener("itemsLoaded", init);

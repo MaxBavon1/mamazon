@@ -1,3 +1,5 @@
+// script.js
+
 function renderTable() {
     const tableBody = document.querySelector('#items-table tbody');
     tableBody.innerHTML = '';
@@ -65,7 +67,7 @@ function renderPagination() {
         }
         pageButton.addEventListener('click', () => {
             currentPage = pageNum;
-            renderTable();
+            renderItems();
             window.scrollTo(0, 0);
         });
         paginationContainer.appendChild(pageButton);
@@ -81,9 +83,7 @@ function renderPagination() {
     }
 
     for (let i = Math.max(1, currentPage - 2); i <= Math.min(totalPages, currentPage + 2); i++) {
-        if (i === 1 || i === totalPages || (i >= currentPage - 1 && i <= currentPage + 1)) {
-            createPageButton(i, i === currentPage);
-        }
+        createPageButton(i, i === currentPage);
     }
 
     if (currentPage < totalPages - 2) {
@@ -105,8 +105,29 @@ function renderItems() {
     updateBasketCount();
 }
 
+function setupPaginationButtons() {
+    document.getElementById('prev-page').addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            renderItems();
+            window.scrollTo(0, 0);
+        }
+    });
+
+    document.getElementById('next-page').addEventListener('click', () => {
+        const totalPages = Math.ceil(items.length / itemsPerPage);
+        if (currentPage < totalPages) {
+            currentPage++;
+            renderItems();
+            window.scrollTo(0, 0);
+        }
+    });
+}
+
 let currentPage = 1;
 const itemsPerPage = 25;
 
 document.addEventListener('itemsLoaded', renderItems);
 document.addEventListener('searchUpdated', renderItems);
+
+setupPaginationButtons();

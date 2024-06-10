@@ -6,25 +6,18 @@
         "img": "F-16_fighter_jet",
         "rating": 5,
         "reviews": 1421,
-        "lastReview": "Amazing flight experience!",
-        "desc": "Introducing the state-of-the-art Falcon X5 Fighter Jet – a marvel of modern aerospace engineering designed for superior performance in both air-to-air and air-to-ground combat scenarios.",
         "lastReviewClient": "John Doe",
-        "features": "- Speed and Agility: Capable of reaching speeds over Mach 2.5, the Falcon X5 offers unmatched agility with advanced thrust vectoring.\n- Stealth Technology: Equipped with cutting-edge stealth features including radar-absorbent materials and an optimized airframe to evade detection.\n- Advanced Avionics: Integrated with next-generation avionics systems for enhanced situational awareness, including a digital glass cockpit and AI-assisted targeting.",
-        "specifications": "- Length: 19.8 meters\n- Wingspan: 13.6 meters\n- Maximum Takeoff Weight: 25,000 kg\n- Engine: Dual turbofan engines with afterburners.",
         "date": "2023-06-09"
     },
-{
+    {
         "name": "A thumb",
         "priceWhole": "$4",
         "priceDecimal": "35",
         "img": "thumb",
         "rating": 3,
         "reviews": 245,
-        "lastReview": "It’s just a thumb.",
-        "desc": "An essential part of the human hand, perfect for gripping and providing dexterity.",
         "lastReviewClient": "Jane Smith",
-        "features": "- Opposable: Essential for grasping and holding objects.\n- Dexterity: Provides fine motor skills for intricate tasks.",
-        "specifications": "- Length: 5-7 cm\n- Joints: 2\n- Function: Gripping and manipulation.",
+        "lastReview": "It’s just a thumb.",
         "date": "2023-05-18"
     },
     {
@@ -34,11 +27,8 @@
         "img": "loire-atlantique",
         "rating": 4.5,
         "reviews": 48,
-        "lastReview": "Beautiful place to visit!",
-        "desc": "A beautiful region in France known for its stunning landscapes and rich history.",
         "lastReviewClient": "Pierre Dubois",
-        "features": "- Scenic Beauty: Stunning landscapes including coastlines, rivers, and vineyards.\n- Rich History: Historical sites and architecture dating back centuries.",
-        "specifications": "- Area: 6,815 km²\n- Population: 1.4 million\n- Capital: Nantes.",
+        "lastReview": "Beautiful place to visit!",
         "date": "2022-12-01"
     },
     {
@@ -48,11 +38,8 @@
         "img": "half_big_mac",
         "rating": 4,
         "reviews": 789,
-        "lastReview": "Tastes just like the full one!",
-        "desc": "Half of the iconic Big Mac burger from McDonald's.",
         "lastReviewClient": "Mike Johnson",
-        "features": "- Classic Taste: Iconic Big Mac flavor.\n- Convenience: Perfect for a quick snack.",
-        "specifications": "- Weight: 110 grams\n- Ingredients: Beef, lettuce, cheese, pickles, onions, sesame bun.",
+        "lastReview": "Tastes just like the full one!",
         "date": "2022-08-10"
     },
     {
@@ -62,11 +49,8 @@
         "img": "baldness",
         "rating": 4,
         "reviews": 2478,
-        "lastReview": "Life-changing experience!",
-        "desc": "Embrace the smooth and shiny look with pride.",
         "lastReviewClient": "Samuel Lee",
-        "features": "- Low Maintenance: No need for haircuts or styling products.\n- Unique Look: Distinctive appearance that stands out.",
-        "specifications": "- Scalp Coverage: 0%\n- Hair Follicles: Non-functional.",
+        "lastReview": "Life-changing experience!",
         "date": "2023-03-15"
     },
     {
@@ -76,11 +60,8 @@
         "img": "potatoe_germs",
         "rating": 4.5,
         "reviews": 12,
-        "lastReview": "Great for my garden!",
-        "desc": "Sprouted potato germs ready for planting.",
         "lastReviewClient": "Emma Wilson",
-        "features": "- Easy to Grow: Simple to plant and cultivate.\n- High Yield: Produces multiple potatoes from each germ.",
-        "specifications": "- Germ Count: 6\n- Growth Time: 2-3 months\n- Ideal Conditions: Moist soil, partial sunlight.",
+        "lastReview": "Great for my garden!",
         "date": "2023-11-25"
     },
     {
@@ -90,11 +71,8 @@
         "img": "clock",
         "rating": 3.5,
         "reviews": 2454,
-        "lastReview": "Interesting concept.",
-        "desc": "A specific time of the day, always 10:14 PM.",
         "lastReviewClient": "Liam Brown",
-        "features": "- Unique Moment: Represents a specific time of day.\n- Symbolic: Can be significant for personal or cultural reasons.",
-        "specifications": "- Time: 10:14 PM\n- Format: 12-hour clock.",
+        "lastReview": "Interesting concept.",
         "date": "2023-04-21"
     },
     {
@@ -104,11 +82,8 @@
         "img": "elephant",
         "rating": 5,
         "reviews": 36,
-        "lastReview": "Huge and noticeable!",
-        "desc": "The metaphorical elephant that no one talks about.",
         "lastReviewClient": "Olivia Davis",
-        "features": "- Metaphorical: Represents an obvious issue that is being ignored.\n- Conversation Starter: Encourages open discussion.",
-        "specifications": "- Size: Metaphorically large\n- Impact: High on social interactions.",
+        "lastReview": "Huge and noticeable!",
         "date": "2023-02-18"
     },
     {
@@ -118,11 +93,8 @@
         "img": "line_13",
         "rating": 4,
         "reviews": 2,
-        "lastReview": "Crowded but essential.",
-        "desc": "The infamous Line 13 of the Paris Metro.",
         "lastReviewClient": "Lucas Martin",
-        "features": "- Essential Route: Key line in the Paris Metro system.\n- High Capacity: Serves a large number of passengers daily.",
-        "specifications": "- Length: 24.3 km\n- Stations: 32\n- Daily Passengers: 600,000+.",
+        "lastReview": "Crowded but essential.",
         "date": "2023-07-07"
     },
     {
@@ -132,11 +104,8 @@
         "img": "library",
         "rating": 5,
         "reviews": 789,
-        "lastReview": "Simplistic yet profound.",
-        "desc": "A minimalistic library featuring a single book.",
         "lastReviewClient": "Sophia Martinez",
-        "features": "- Minimalist: Focus on a single book for deep exploration.\n- Quiet Space: Ideal for concentrated reading.",
-        "specifications": "- Book Count: 1\n- Seating: Limited\n- Environment: Quiet and serene.",
+        "lastReview": "Simplistic yet profound.",
         "date": "2023-01-12"
     },
     {
@@ -146,11 +115,8 @@
         "img": "empty_bic",
         "rating": 2,
         "reviews": 789,
-        "lastReview": "Useless but nostalgic.",
-        "desc": "A BIC pen without any ink left.",
         "lastReviewClient": "Benjamin Thomas",
-        "features": "- Nostalgic: Brings back memories of past use.\n- Reusable: Can be refilled with new ink.",
-        "specifications": "- Ink: None\n- Length: 14 cm\n- Material: Plastic.",
+        "lastReview": "Useless but nostalgic.",
         "date": "2023-09-19"
     },
     {
@@ -160,11 +126,8 @@
         "img": "friendzone",
         "rating": 0.5,
         "reviews": 1003,
-        "lastReview": "Not what I expected.",
-        "desc": "The dreaded and often unavoidable Friendzone.",
         "lastReviewClient": "Charlotte Garcia",
-        "features": "- Social Dynamic: Represents a platonic relationship despite one party's romantic interest.\n- Emotional Impact: Can lead to personal growth and understanding.",
-        "specifications": "- Emotional State: Platonic\n- Interaction Level: High.",
+        "lastReview": "Not what I expected.",
         "date": "2022-11-11"
     },
     {
@@ -174,25 +137,19 @@
         "img": "42_years_old",
         "rating": 4.5,
         "reviews": 14,
-        "lastReview": "Age is just a number.",
-        "desc": "A specific age with all its wisdom and experiences.",
         "lastReviewClient": "Henry Clark",
-        "features": "- Experience: Reflects wisdom and life experience.\n- Prime Age: Often considered a peak period in life.",
-        "specifications": "- Age: 42 years\n- Life Stage: Mid-adulthood.",
+        "lastReview": "Age is just a number.",
         "date": "2022-10-05"
     },
     {
-        "name": " The credit card of Jeff Bezos",
+        "name": "The credit card of Jeff Bezos",
         "priceWhole": "$2",
         "priceDecimal": "90",
         "img": "jeff_bezos_credit_card",
         "rating": 0,
         "reviews": 0,
-        "lastReview": "No money left.",
-        "desc": "An empty credit card belonging to Jeff Bezos.",
         "lastReviewClient": "Amelia Rodriguez",
-        "features": "- High Limit: Presumably high credit limit.\n- Exclusive: Linked to a notable individual.",
-        "specifications": "- Balance: Empty\n- Card Type: Credit.",
+        "lastReview": "No money left.",
         "date": "2023-10-28"
     },
     {
@@ -202,11 +159,8 @@
         "img": "the_green_mouse",
         "rating": 4,
         "reviews": 1245,
-        "lastReview": "Very rare find!",
-        "desc": "A unique mouse with a green hue.",
         "lastReviewClient": "Mason Lewis",
-        "features": "- Unique Color: Distinctive green hue.\n- Rare: Hard to find in the wild.",
-        "specifications": "- Color: Green\n- Species: Unknown\n- Habitat: Rare.",
+        "lastReview": "Very rare find!",
         "date": "2023-06-30"
     },
     {
@@ -216,11 +170,8 @@
         "img": "planet_mars",
         "rating": 2.5,
         "reviews": 801,
-        "lastReview": "A bit dusty.",
-        "desc": "The red planet, ready for exploration.",
         "lastReviewClient": "Isabella Walker",
-        "features": "- Exploration: Potential for future colonization.\n- Unique Terrain: Known for its red, dusty landscape.",
-        "specifications": "- Diameter: 6,779 km\n- Moons: 2 (Phobos and Deimos)\n- Atmosphere: Thin, mostly CO2.",
+        "lastReview": "A bit dusty.",
         "date": "2023-01-22"
     },
     {
@@ -230,11 +181,8 @@
         "img": "chocolate_mars",
         "rating": 4,
         "reviews": 3,
-        "lastReview": "Delicious but pricey.",
-        "desc": "A very expensive chocolate bar.",
         "lastReviewClient": "James Hall",
-        "features": "- Delicious: Classic chocolate bar taste.\n- Popular: Well-known candy globally.",
-        "specifications": "- Weight: 51 grams\n- Ingredients: Chocolate, caramel, nougat.",
+        "lastReview": "Delicious but pricey.",
         "date": "2022-09-14"
     },
     {
@@ -244,11 +192,8 @@
         "img": "k_key",
         "rating": 5,
         "reviews": 204,
-        "lastReview": "Indispensable!",
-        "desc": "The 'K' key from a keyboard.",
         "lastReviewClient": "Emily Allen",
-        "features": "- Essential: Crucial for typing 'K'.\n- Durable: Built to withstand frequent use.",
-        "specifications": "- Key Type: Mechanical\n- Function: Typing\n- Compatibility: Standard keyboards.",
+        "lastReview": "Indispensable!",
         "date": "2023-08-23"
     },
     {
@@ -258,11 +203,8 @@
         "img": "needle",
         "rating": 4.5,
         "reviews": 10,
-        "lastReview": "Finally found it!",
-        "desc": "A metaphorical needle lost in a haystack.",
         "lastReviewClient": "Alexander Young",
-        "features": "- Metaphorical: Represents something difficult to find.\n- Valuable: Often worth the effort to locate.",
-        "specifications": "- Size: Small\n- Material: Metal\n- Context: Metaphor.",
+        "lastReview": "Finally found it!",
         "date": "2023-07-19"
     },
     {
@@ -272,11 +214,8 @@
         "img": "alley",
         "rating": 3.5,
         "reviews": 17,
-        "lastReview": "Cozy and quiet.",
-        "desc": "A narrow passage between buildings.",
         "lastReviewClient": "Grace King",
-        "features": "- Quiet: Often secluded and peaceful.\n- Urban: Common in cities between buildings.",
-        "specifications": "- Width: 2-3 meters\n- Length: Varies\n- Location: Urban areas.",
+        "lastReview": "Cozy and quiet.",
         "date": "2022-10-17"
     },
     {
@@ -286,11 +225,8 @@
         "img": "oil_platform",
         "rating": 2.5,
         "reviews": 702,
-        "lastReview": "Not eco-friendly.",
-        "desc": "A large structure used for extracting oil.",
         "lastReviewClient": "David Scott",
-        "features": "- Industrial: Used for extracting oil.\n- Offshore: Typically located in the ocean.",
-        "specifications": "- Height: Varies\n- Capacity: Large-scale extraction\n- Material: Steel.",
+        "lastReview": "Not eco-friendly.",
         "date": "2023-05-04"
     },
     {
@@ -300,25 +236,19 @@
         "img": "myopia",
         "rating": 5,
         "reviews": 27,
-        "lastReview": "Vision is clearer now.",
-        "desc": "A slight nearsightedness condition.",
         "lastReviewClient": "Victoria Green",
-        "features": "- Correctable: Can be treated with glasses or contact lenses.\n- Common: Affects a significant portion of the population.",
-        "specifications": "- Diopters: -0.7\n- Impact: Mild nearsightedness.",
+        "lastReview": "Vision is clearer now.",
         "date": "2023-09-02"
     },
     {
         "name": "Nothing",
-        "priceWhole": "$242",
-        "priceDecimal": "75",
+        "priceWhole": "$29",
+        "priceDecimal": "99",
         "img": "nothing",
         "rating": 4.5,
         "reviews": 97,
-        "lastReview": "Surprisingly fulfilling.",
-        "desc": "An empty concept representing nothing.",
         "lastReviewClient": "Michael Baker",
-        "features": "- Conceptual: Represents the absence of anything.\n- Philosophical: Can provoke deep thought.",
-        "specifications": "- Material: None\n- Presence: Absent.",
+        "lastReview": "Surprisingly fulfilling.",
         "date": "2023-10-09"
     },
     {
@@ -328,11 +258,8 @@
         "img": "canadian_cent",
         "rating": 3,
         "reviews": 15,
-        "lastReview": "Rare collector's item.",
-        "desc": "A single Canadian penny.",
         "lastReviewClient": "Ella Nelson",
-        "features": "- Collectible: No longer in circulation.\n- Historical: Represents Canadian currency history.",
-        "specifications": "- Diameter: 19.05 mm\n- Material: Copper-plated zinc\n- Year: Varies.",
+        "lastReview": "Rare collector's item.",
         "date": "2023-11-02"
     },
     {
@@ -342,11 +269,8 @@
         "img": "empty_spinach_can",
         "rating": 4.5,
         "reviews": 82,
-        "lastReview": "Great for crafts.",
-        "desc": "An empty can that once held spinach.",
         "lastReviewClient": "Daniel Carter",
-        "features": "- Reusable: Can be used for crafts or storage.\n- Lightweight: Easy to handle.",
-        "specifications": "- Material: Tin\n- Capacity: 400 grams\n- Condition: Empty.",
+        "lastReview": "Great for crafts.",
         "date": "2023-07-14"
     },
     {
@@ -356,11 +280,53 @@
         "img": "alphabet",
         "rating": 4,
         "reviews": 4785,
-        "lastReview": "Often useful.",
-        "desc": "This product is a set of letters or symbols used to represent the sounds of a spoken language. In the English language, the alphabet consists of 26 letters, from A to Z. Each letter has its own unique sound and can be combined with other letters to form words. The alphabet is fundamental to reading, writing, and communication in many languages.",
         "lastReviewClient": "Alain Rey",
-        "features": "- Reusable: Can be used several times.\n- Lightweight: Pretty light.",
-        "specifications": "- Material: Tin\n- Capacity: 26 grams\n- Condition: Empty.",
+        "lastReview": "Often useful.",
         "date": "1200-02-14"
+    },
+    {
+    "name": "An abribus",
+    "priceWhole": "$27",
+    "priceDecimal": "02",
+    "img": "abribus",
+    "rating": 3,
+    "reviews": 25,
+    "lastReviewClient": "Jean Dupont",
+    "lastReview": "It's just a bus stop.",
+    "date": "2023-05-10"
+    },
+    {
+    "name": "Smith Chart",
+    "priceWhole": "$148",
+    "priceDecimal": "50",
+    "img": "smith_chart",
+    "rating": 4.5,
+    "reviews": 50,
+    "lastReviewClient": "Marie Curie",
+    "lastReview": "Very useful for impedance calculations.",
+    "date": "2023-03-21"
+    },
+    {
+    "name": "Fake PNG",
+    "priceWhole": "$4",
+    "priceDecimal": "99",
+    "img": "fake_png",
+    "rating": 1,
+    "reviews": 100,
+    "lastReviewClient": "Anonymous",
+    "lastReview": "It wasn't actually transparent.",
+    "date": "2023-08-19"
+    },
+    {
+        "name": "The Frog in the throat",
+        "priceWhole": "$3,249",
+        "priceDecimal": "50",
+        "img": "frog_in_throat",
+        "rating": 3.5,
+        "reviews": 84,
+        "lastReviewClient": "Alex White",
+        "lastReview": "Unique and unforgettable!",
+        "date": "2023-11-02"
     }
+    
 ]

@@ -172,6 +172,10 @@
     flex-direction: column;
 }
 
+strong {
+    font-weight: bolder;
+}
+
 #product-description {
     position: relative;
     padding: 40px 30px 20px 30px;
@@ -183,6 +187,9 @@
     overflow-x: hidden;
 }
 
+#product-desc {
+    text-indent: 10%;
+}
 #blue-desc-footer {
     position: relative;
     background-image: url("../img/product/blue_square.png");
@@ -202,8 +209,8 @@
 .description-title {
     transform: translateX(-10px);
     font-weight: bold;
-    font-size: 20px;
-    margin-bottom: 10px;
+    font-size: 22px;
+    margin-bottom: 20px;
 }
 
 #product-shop {
