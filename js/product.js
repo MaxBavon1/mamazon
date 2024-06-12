@@ -1,5 +1,6 @@
 function switchProductImage(imageNumber)
 {
+    // Switches 2 images on the product page to click on them
     const image1 = document.getElementById("product-img-1");
     const image2 = document.getElementById(`product-img-${imageNumber}`);
 
@@ -10,6 +11,7 @@ function switchProductImage(imageNumber)
 
 function loadItemLeftContainer(item)
 {
+    // Self explainatory
     const image1 = document.getElementById("product-img-1");
     const image2 = document.getElementById("product-img-2");
     const image3 = document.getElementById("product-img-3");
@@ -30,6 +32,7 @@ function loadItemLeftContainer(item)
 
 function loadItemRightContainer(item)
 {
+    // Self explainatory
     document.getElementById("item-name").innerText = item.name;
     const starsContainer2 = document.getElementById("stars-container-2");
     starsContainer2.innerHTML = renderStars(item.rating);
@@ -54,6 +57,7 @@ function loadItemRightContainer(item)
 
 
 function loadItem(item) {
+    // Self explainatory
     loadItemLeftContainer(item);
     loadItemRightContainer(item);
 
@@ -61,7 +65,7 @@ function loadItem(item) {
 }
 
 
-function openPopup() {
+function openPopup() { // Aniation
     const popup = document.getElementById('popup');
     const popupImg = document.getElementById('popup-img');
     const img = document.getElementById('product-img-1');
@@ -69,7 +73,7 @@ function openPopup() {
     popupImg.src = img.src;
 }
 
-function closePopup() {
+function closePopup() { // Animation
     document.getElementById('popup').style.display = "none";
 }
 

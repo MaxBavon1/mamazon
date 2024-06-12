@@ -1,13 +1,15 @@
 let checkoutTimeOut;
 
 function proceedToCheckout(button) {
-    const minTranslateX = -1310;
+    // The is the fancy animation for the checkout button
+    // It moves the button to a random location on the screen
+    const minTranslateX = -1310; // location boudaries
     const maxTranslateX = 205;
     const minTranslateY = -160;
     const maxTranslateY = 600;
 
     let translateX, translateY;
-    do {
+    do { // Calculates the amount of pixels to move the button
         translateX = Math.floor(Math.random() * (maxTranslateX - minTranslateX + 1)) + minTranslateX;
         translateY = Math.floor(Math.random() * (maxTranslateY - minTranslateY + 1)) + minTranslateY;
     } while (Math.abs(translateX) < 200 || Math.abs(translateY) < 100);
@@ -24,6 +26,7 @@ function proceedToCheckout(button) {
 }
 
 function deleteBasketItem(oldItemName) {
+    // Self explainatory
     basketItems = basketItems.filter(item => item.item.name !== oldItemName);
     
     updateBasketPage();
@@ -40,6 +43,7 @@ function updateItemQuantity(itemName, newQuantity) {
 }
 
 function renderBasketItems() {
+    // That is the main function that renders the basket items dynamically by creating divs
     const itemsDiv = document.getElementById("basket-items");
     itemsDiv.innerHTML = '';
 
@@ -50,6 +54,7 @@ function renderBasketItems() {
 
         const itemDiv = document.createElement("div");
         itemDiv.classList.add("basket-item");
+        // Dynamic div creation and HTML Code
         itemDiv.innerHTML = `
             <div class="basket-item-img">
                 <img  id="${item.name}-img" class="basket-item-image" src="../img/items/${item.img}/1.png" alt="${item.name}" width="128" onmouseenter="PopIn('${item.name}-img')" onmouseleave="PopOut('${item.name}-img')">
@@ -91,8 +96,9 @@ function renderBasketItems() {
                 <p> ${decimalPrice} </p>
             </div>`;
 
-        itemsDiv.appendChild(itemDiv); // Append the itemDiv before accessing the select element
+        itemsDiv.appendChild(itemDiv);
 
+        // Makes the HMTL content created dynamic
         const selectQuantity = document.getElementById(`quantity-select-${item.name}`);
 
         selectQuantity.value = basketItem.quantity.toString();
@@ -109,25 +115,27 @@ function renderBasketItems() {
 
 function renderRecommendedItems()
 {
+    // This function renders the recommended items on the basket page
     const itemsDiv = document.getElementById("recom-items");
     itemsDiv.innerHTML = '';
 
-    let itemIndexs = [];
+    let itemIndexs = []; // It selects 3 random items from the list
     for (i = 0; i < 3; i++) {
         let itemIndex;
         do {
-            itemIndex = Math.floor(Math.random() * itemList.length);
+            itemIndex = Math.floor(Math.random() * itemList.length); // Random number from 0 to the length of the list
         } while (itemIndexs.includes(itemIndex));
         itemIndexs.push(itemIndex);
     }
 
-    for (i = 0; i < itemIndexs.length; i++) {
+    for (i = 0; i < itemIndexs.length; i++) { // 3 times for 3 random items
         let itemIndex = itemIndexs[i];
         let item = itemList[itemIndex];
 
         const itemDiv = document.createElement("div");
         const uniqueId = `recom-item-${itemIndex}`;
         itemDiv.classList.add("recom-item");
+        // Dynamic div creation and HTML Code
         itemDiv.innerHTML = `
             <div class="recom-item-img">
                 <img id="${item.name}-img2" class="recom-item-image" src="../img/items/${item.img}/1.png" alt="${item.name}" onmouseenter="PopIn('${item.name}-img2')" onmouseleave="PopOut('${item.name}-img2')">
@@ -141,6 +149,7 @@ function renderRecommendedItems()
 
         itemsDiv.appendChild(itemDiv);
         
+        // Makes the HMTL content created dynamic
         itemDiv.querySelector(".recom-item-img").addEventListener("click", () => goToProductPage(item.name));
         itemDiv.querySelector(".recom-name").addEventListener("click", () => goToProductPage(item.name));
         itemDiv.querySelector(".buy-button").addEventListener("click", function() {
@@ -151,6 +160,9 @@ function renderRecommendedItems()
 
 function calculateItemPrice(item, quantity)
 {
+    // This function calculates the price of an item based on the quantity
+    // Needed because the price is split into 2 parts
+    // It returns the whole price and the decimal price
     let totalWholePrice = 0;
     let totalDecimalPrice = 0;
 
@@ -176,6 +188,7 @@ function calculateItemPrice(item, quantity)
 }
 
 function calculateTotalPrice(basketItems) {
+    // Number of items in the basket * quantity for each item
     let totalWholePrice = 0;
     let totalDecimalPrice = 0;
 
@@ -205,6 +218,7 @@ function calculateTotalPrice(basketItems) {
 }
 
 function renderSubTotal() {
+    // Shows the sub total using the 2 above functions
     document.getElementById("number-items").innerText = getBasketTotalItems();
     let prices = calculateTotalPrice(basketItems);
     document.getElementById("subtotal-whole-price").innerText = prices.wholePrice;

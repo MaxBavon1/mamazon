@@ -1,23 +1,23 @@
-// script.js
-
 function renderTable() {
+    // Main rendering function that dinamicly creates the table with items
     const tableBody = document.querySelector('#items-table tbody');
     tableBody.innerHTML = '';
 
     const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
+    const endIndex = startIndex + itemsPerPage; // Page indexing calculations
 
     const itemsToDisplay = items.slice(startIndex, endIndex);
 
     let row;
-    itemsToDisplay.forEach((item, index) => {
+    itemsToDisplay.forEach((item, index) => { // For each item in the items array
         if (index % 5 === 0) {
-            row = document.createElement('tr');
+            row = document.createElement('tr'); // Table row creation
             tableBody.appendChild(row);
         }
 
         const uniqueId = `item-${startIndex + index}`;
         const cell = document.createElement('td');
+        // Whole dinamyc HTML creation
         cell.innerHTML = `
             <div class="item-container">
                 <div class="img-container" onclick="goToProductPage('${item.name}')">
@@ -52,6 +52,7 @@ function renderTable() {
 }
 
 function renderPagination() {
+    // Renders the bottom pagination buttons (1, 2, 3, ...)
     const totalPages = Math.ceil(items.length / itemsPerPage);
     const paginationContainer = document.getElementById('page-numbers');
     paginationContainer.innerHTML = '';
@@ -106,6 +107,7 @@ function renderItems() {
 }
 
 function setupPaginationButtons() {
+    // Set up the event listeners for the pagination buttons (prev, next)
     document.getElementById('prev-page').addEventListener('click', () => {
         if (currentPage > 1) {
             currentPage--;
@@ -124,8 +126,8 @@ function setupPaginationButtons() {
     });
 }
 
-let currentPage = 1;
-const itemsPerPage = 25;
+let currentPage = 1; // Current page number
+const itemsPerPage = 25; // Number of items per page
 
 document.addEventListener('itemsLoaded', renderItems);
 document.addEventListener('searchUpdated', renderItems);

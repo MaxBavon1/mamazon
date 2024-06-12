@@ -26,16 +26,17 @@ function setupEventListeners() {
 }
 
 function handleSearchOnEnter() {
+    // Redirect to home page when search is performed on other pages
     const query = document.getElementById("main-search-bar").value.trim().toLowerCase();
     if (query.length > 0) {
-    if (!window.location.href.includes('home.html')) {
-        selectRadio('all');
-        window.location.href = `/html/home.html?search=${encodeURIComponent(query)}`;
-    } else {
-    handleSearch();
+        if (!window.location.href.includes('home.html')) {
+            selectRadio('all');
+            window.location.href = `/html/home.html?search=${encodeURIComponent(query)}`;
+        } else {
+        handleSearch();
+        }
     }
-    }
-    }
+}
 
 
 function clearSearch() {
@@ -44,6 +45,7 @@ function clearSearch() {
 }
 
 function handleSearch() {
+    // Filters the itemList based on search query from the search bar
     const query = document.getElementById("main-search-bar").value.trim().toLowerCase();
 
     if (query.length > 0) {
@@ -52,7 +54,8 @@ function handleSearch() {
         document.getElementById("search-cross").style.display = "none";
     }
 
-    items = itemList.filter(item => 
+    // Fonction that sorts the items based on the matches between 2 letters
+    items = itemList.filter(item =>
         item.name.toLowerCase().includes(query)
     ).sort((a, b) => {
         const aStartsWith = a.name.toLowerCase().startsWith(query);
@@ -78,7 +81,7 @@ function selectRadio(choice) {
     }
 }
 
-
+// Redirection functions
 function goToHomePage() {
     window.location.href = "/html/home.html";
 }
@@ -100,6 +103,7 @@ function goToProductPage(name) {
 }
 
 function handleMenuChange(event, index) {
+    // Handle the radio menu change (All, new Realises, Best Sellers, etc.)
     const selectedValue = event.target.value;
     const selectedLabel = event.target.nextElementSibling;
 
@@ -115,6 +119,7 @@ function handleMenuChange(event, index) {
 }
 
 function updateUnderlinePosition(index) {
+    // Underlines the current radio menu for UI feedback
     const menuItems = document.querySelectorAll('#menu-form .menu-label');
     const selectedLabel = menuItems[index];
     const underline = document.getElementById('underline');
@@ -123,6 +128,7 @@ function updateUnderlinePosition(index) {
 }
 
 function handleRedirection(selectedValue) {
+    // Redirects to the appropriate page based on the selected radio menu
     switch (selectedValue) {
         case 'all':
             if (!window.location.href.includes('home')) {
@@ -170,6 +176,7 @@ function handleRedirection(selectedValue) {
 }
 
 function initializeMenu() {
+    // Initializes the radio menu on page load
     if (!window.location.href.includes('basket') && !window.location.href.includes('product')) {
         const activeMenu = localStorage.getItem('activeMenu');
         const menuItems = document.querySelectorAll('#menu-form .menu-label input[type="radio"]');
@@ -202,6 +209,8 @@ function resetMenu() {
 }
 
 function setupMouseAnimations() {
+    // This long function is only to animate the account button on the top right of the page
+    // It makes the head and body of the account button disappear when the mouse is over it
     let headAnimationInProgress = false;
     let bodyAnimationInProgress = false;
 
@@ -213,6 +222,7 @@ function setupMouseAnimations() {
         const mouseX = event.clientX;
         const mouseY = event.clientY;
 
+        // Creates a rectangle for mouse hover detection
         const withinLeftDistance = mouseX >= rect.left - 25;
         const withinRightDistance = mouseX <= rect.right + 100;
         const withinTopDistance = mouseY >= rect.top - 100;
@@ -295,6 +305,8 @@ function setupMouseAnimations() {
 }
 
 function renderStars(rating) {
+    // This function is used severall times in all files
+    // It return the html code for the stars rating
     const fullStars = Math.floor(rating);
     const halfStars = rating % 1 >= 0.5 ? 1 : 0;
     const emptyStars = 5 - fullStars - halfStars;
@@ -318,8 +330,6 @@ function renderStars(rating) {
 
 // Basket-related functions
 
-let basketItems = [];
-
 function saveBasketItems() {
     localStorage.setItem("basketItems", JSON.stringify(basketItems));
 }
@@ -333,7 +343,8 @@ function getBasketTotalItems() {
 }
 
 function addItemToBasket(newItemName, uniqueId, quantity=1) {
-    BigPop(uniqueId);
+    // Add an item to the basket, with the correct quantity and uniqueId for animation
+    BigPop(uniqueId); // Animation
 
     const newItem = items.find(item => item.name === newItemName);
     if (!newItem) {
@@ -350,11 +361,12 @@ function addItemToBasket(newItemName, uniqueId, quantity=1) {
         basketItems.push({ item: newItem, quantity: quantity });
     }
 
-    updateBasketCount();
-    saveBasketItems();
+    updateBasketCount(); // Update the basket icon
+    saveBasketItems(); // Use local storage to save the basket items
 }
 
 function updateBasketCount() {
+    // Calculate the total basket count based on items quantity, and update the basket icon
     const basketCount = getBasketTotalItems();
 
     const notif = document.getElementById("notif");
@@ -373,7 +385,7 @@ function updateBasketCount() {
         basketCountElement.textContent = "9+";
     }
 
-    PopIn("basket-count");
+    PopIn("basket-count"); // Animation
 }
 
 // Animation helper functions
@@ -405,7 +417,8 @@ function BigPop(element) {
     }, 100);
 }
 
-// Items functions
+// Items-related functions
+// Items filtering functions
 function itemsFilterReset() {
     items = Array.from(itemList);
     document.dispatchEvent(new Event('searchUpdated'));
@@ -437,6 +450,7 @@ function itemsFilterByDate() {
 
 
 async function fetchItems() {
+    // Fetch items from two different JSON files and merge them into an item list
     try {
         const [response1, response2] = await Promise.all([
             fetch('../data/json/items.json'),
@@ -476,6 +490,7 @@ function findItem(name) {
 }
 
 async function onLoad() {
+    // Load the main page content on DOM load
     itemList = await fetchItems();
     items = Array.from(itemList);
 
@@ -499,6 +514,7 @@ function init() {
     document.addEventListener("DOMContentLoaded", onLoad);
 }
 
-let itemList = [];
-let items = [];
+let basketItems = []; // Format { item: item, quantity: number } - all items in the basket
+let itemList = []; // All items in the store
+let items = []; // Items currently displayed on the page depending of the filter settings
 init();
