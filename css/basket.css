@@ -306,3 +306,84 @@
    #delete-button:active .icon svg {
     transform: scale(0.8);
    }
+
+
+#recom-items {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin: 25px 0px;
+}
+
+.recom-item {
+    background-color: white;
+    width: 80%;
+    height: 80px;
+    border-radius: 20px;
+    margin: 8px 0px 8px 0px;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    border: rgba(37, 47, 61, 0.2) solid 1px;
+}
+
+.recom-item-img {
+    width: 40%;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.recom-item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.recom-item-name {
+    box-shadow: rgba(0, 0, 0, 0.22) -4px 0px 15px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 8px 20px;
+}
+
+.recom-name {
+    margin: 0px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.recom-name:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#recom-price {
+    margin: 0px 0px 2px 0px;
+    font-weight: 500;
+    font-size: 14px;
+    color: rgb(204, 15, 15);
+}
+#recom-price span {
+    position: relative;
+    left: -4px;
+    top: -6px;
+    font-size: 8px;
+    font-weight: 100;
+}
+
+.buy-button {
+    background-color: #FAC710;
+    background-image: linear-gradient(315deg, #f5ab24 0%, #FAC710 74%);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 3px 10px;
+    cursor: pointer;
+    color:#252F3D;
+    padding: 5px;
+    width: 80px;
+    height: 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 10px;
+}

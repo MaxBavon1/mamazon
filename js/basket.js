@@ -107,6 +107,48 @@ function renderBasketItems() {
     });
 }
 
+function renderRecommendedItems()
+{
+    const itemsDiv = document.getElementById("recom-items");
+    itemsDiv.innerHTML = '';
+
+    let itemIndexs = [];
+    for (i = 0; i < 3; i++) {
+        let itemIndex;
+        do {
+            itemIndex = Math.floor(Math.random() * itemList.length);
+        } while (itemIndexs.includes(itemIndex));
+        itemIndexs.push(itemIndex);
+    }
+
+    for (i = 0; i < itemIndexs.length; i++) {
+        let itemIndex = itemIndexs[i];
+        let item = itemList[itemIndex];
+
+        const itemDiv = document.createElement("div");
+        const uniqueId = `recom-item-${itemIndex}`;
+        itemDiv.classList.add("recom-item");
+        itemDiv.innerHTML = `
+            <div class="recom-item-img">
+                <img id="${item.name}-img2" class="recom-item-image" src="../img/items/${item.img}/1.png" alt="${item.name}" onmouseenter="PopIn('${item.name}-img2')" onmouseleave="PopOut('${item.name}-img2')">
+            </div>
+            <div class="recom-item-name">
+                <p class="recom-name"> ${item.name} </p>
+                <p id="recom-price"> ${item.priceWhole} <span> ${item.priceDecimal} </span> </p>
+                <button class="buy-button" id="${uniqueId}" onmouseenter="PopIn('${uniqueId}')" onmouseleave="PopOut('${uniqueId}')"> Add to Cart </button>
+                
+            </div>`;
+
+        itemsDiv.appendChild(itemDiv);
+        
+        itemDiv.querySelector(".recom-item-img").addEventListener("click", () => goToProductPage(item.name));
+        itemDiv.querySelector(".recom-name").addEventListener("click", () => goToProductPage(item.name));
+        itemDiv.querySelector(".buy-button").addEventListener("click", function() {
+            addItemToBasket(item.name, uniqueId)
+            updateBasketPage(); });
+    }
+}
+
 function calculateItemPrice(item, quantity)
 {
     let totalWholePrice = 0;
@@ -183,3 +225,4 @@ function onLoad() {
 }
 
 document.addEventListener("DOMContentLoaded", onLoad);
+document.addEventListener("itemsLoaded", renderRecommendedItems);
