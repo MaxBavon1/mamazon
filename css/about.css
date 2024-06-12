@@ -180,6 +180,15 @@
     cursor: pointer;
 }
 
+#advertisement {
+    color:#37475a;
+}
+
+#advertisement:hover {
+    color: #1ca4e3;
+}
+
+
   
   
   
